@@ -1,0 +1,9 @@
+no,카테고리명,Depth 1,Depth 2,Depth 3,Depth 4,Depth 5,화면경로,담당자,진행상태,완료일,비고
+1,공통,회원가입,,,,,/pages/join.html,,진행중,,
+2,공통,로그인,,,,,/pages/login.html,,,,
+3,메인,로그인전,,,,,/pages/main.html,,,,
+4,메인,로그인후,,,,,/pages/main02.html,,,,
+5,메인,커뮤니티,,,,,/pages/community.html,,,,
+6,메인,마이페이지,,,,,/pages/mypage.html,,,,
+7,메인,팝업,,,,,/pages/popup.html,,,,
+,,,,,,,,,,,
