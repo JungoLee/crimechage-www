@@ -1,8 +1,6 @@
 let player = null;
 const setFn = {
   onYouTubeIframeAPIReady() {
-    console.info(`loadVideo called`);
-
     (function loadYoutubeIFrameApiScript() {
       const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
@@ -48,22 +46,54 @@ const setFn = {
       }
     }
   },
+
+  mainFn() {
+    let featureSwiper = null;
+    let isSwiperInitialized = false;
+    let resizeTimeout;
+
+    function initSwiper() {
+      if (window.innerWidth >= 768 && !isSwiperInitialized) {
+        featureSwiper = new Swiper(".feature-swiper", {
+          slidesPerView: 1.5,
+          centeredSlides: true,
+          spaceBetween: 65,
+          loop: true,
+          // autoplay: {
+          //   delay: 5000,
+          // },
+          scrollbar: {
+            el: ".swiper-scrollbar",
+          },
+        });
+        isSwiperInitialized = true;
+      } else if (window.innerWidth < 768 && isSwiperInitialized) {
+        featureSwiper.destroy(true, true);
+        featureSwiper = null;
+        isSwiperInitialized = false;
+      }
+    }
+
+    // Initialize Swiper on page load
+    initSwiper();
+
+    // Reinitialize Swiper on window resize with debounce
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const currentWidth = window.innerWidth;
+        if ((currentWidth >= 768 && !isSwiperInitialized) || (currentWidth < 768 && isSwiperInitialized)) {
+          initSwiper();
+        }
+      }, 50); // Adjust the debounce delay as needed
+    });
+  },
 };
 document.addEventListener("DOMContentLoaded", function () {
-  console.info(`DOMContentLoaded ==>`, document.readyState);
   setFn.onYouTubeIframeAPIReady();
+  if (document.querySelector(".main-container-page")) {
+    setFn.mainFn();
+  }
+
   // swiper feature-swiper init
-  const featureSwiper = new Swiper(".feature-swiper", {
-    slidesPerView: 1.5,
-    centeredSlides: true,
-    spaceBetween: 65,
-    loop: true,
-    // autoplay: {
-    //   delay: 5000,
-    // },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
 });

@@ -24,12 +24,21 @@
     <header id="header" class="header f-bar-bold">
       <div class="header-inner">
         <div class="header-util">
+          <button type="button" class="btn-allmenu mo-show">
+            <i class="ico-allmenu" aria-hidden="true"></i>
+            <span class="hide-txt">전체메뉴</span>
+          </button>
           <h1>
             <a href="" class="logo">
               <img src="../assets/images/logo.png" alt="asd">
               <span class="hide-txt">CRIME & CHASE conlict city</span>
             </a>
           </h1>
+          <!-- 로그인 버튼 -->
+          <a href="#none" class="btn-login mo-show">
+            <i class="ico-login" aria-hidden="true"></i>
+            <span class="hide-txt">로그인</span>
+            </ㅁ>
         </div>
         <div class="header-nav">
           <ul class="gnb-area left">
@@ -78,7 +87,7 @@
 
     <div id="container">
       <div id="content">
-        <div class="main-container">
+        <div class="main-container-page">
           <div class="main-visual-wrapper">
             <div class="video-area">
               <div class="youtube-frame" id="youtube-frame"></div>
@@ -87,7 +96,7 @@
             <div class="content-area">
               <span class="public-txt">CRIME &</span>
               <br>
-              <img src="../assets/images/logo_chip.png" alt="">
+              <img class="chip-img" src="../assets/images/logo_chip.png" alt="">
               <span class="public-txt type02">CHASE</span>
               <p class="public-txt red f-52">Your Ultimate 4X Game Destination</p>
               <p class="public-txt f-24 f-bar-md">Welcome to Crime&Chase, where excitement and strategy meet!</p>
@@ -115,8 +124,9 @@
                     <img src="../assets/images/features_img01.jpg" alt="">
                   </div>
                   <div class="text-box">
-                    <p class="public-txt f-40">Manage Your Own Company</p>
-                    <p class="public-txt f-22 f-bar-md">Make your company the best company! </p>
+                    <p class="public-txt f-40">CAR FIGHT!</p>
+                    <p class="public-txt f-22 f-bar-md">You can achieve victory in car fights with<br> the right
+                      combination of vehicle and driver!</p>
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -124,8 +134,8 @@
                     <img src="../assets/images/features_img02.jpg" alt="">
                   </div>
                   <div class="text-box">
-                    <p class="public-txt f-40">Manage Your Own Company</p>
-                    <p class="public-txt f-22 f-bar-md">Make your company the best company! </p>
+                    <p class="public-txt f-40">MANAGE YOUR OWN COMPANY</p>
+                    <p class="public-txt f-22 f-bar-md">Make your company the best company!</p>
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -133,8 +143,9 @@
                     <img src="../assets/images/features_img03.jpg" alt="">
                   </div>
                   <div class="text-box">
-                    <p class="public-txt f-40">Manage Your Own Company</p>
-                    <p class="public-txt f-22 f-bar-md">Make your company the best company! </p>
+                    <p class="public-txt f-40">DOMINATE OTHER GANGSTER</p>
+                    <p class="public-txt f-22 f-bar-md">Now that you've become stronger,<br>take down the gangsters in
+                      the field!</p>
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -142,8 +153,8 @@
                     <img src="../assets/images/features_img04.jpg" alt="">
                   </div>
                   <div class="text-box">
-                    <p class="public-txt f-40">Manage Your Own Company</p>
-                    <p class="public-txt f-22 f-bar-md">Make your company the best company! </p>
+                    <p class="public-txt f-40">COLLECT NICE CARS</p>
+                    <p class="public-txt f-22 f-bar-md">Collect the best cars, show them off,<br>and sell them!</p>
                   </div>
                 </div>
                 <div class="swiper-slide">
@@ -151,9 +162,14 @@
                     <img src="../assets/images/features_img05.jpg" alt="">
                   </div>
                   <div class="text-box">
-                    <p class="public-txt f-40">Manage Your Own Company</p>
-                    <p class="public-txt f-22 f-bar-md">Make your company the best company! </p>
+                    <p class="public-txt f-40">RULE THE WORLD</p>
+                    <p class="public-txt f-22 f-bar-md">Expand and extend to build your empire!</p>
                   </div>
+                </div>
+              </div>
+              <div class="progress-bar-wrapper" aria-hidden="true">
+                <div class="progress-bar-inner">
+                  <div class="progress-bar"></div>
                 </div>
               </div>
             </div>
@@ -169,44 +185,44 @@
 
     <!-- footer include-->
     <footer id="footer" class="footer">
-      <div class="footer-info">
-        <div class="logo-area">
-          <a href=""><span class="hide-txt">푸터 로고</span></a>
-        </div>
-        <div class="footer-menu">
-          <div class="privacy-list">
-            <strong>Title</strong>
-            <ul class="footer-list">
+      <div class="footer-inner">
+        <div CLASS="copyright">COPYRIGHT © 2024 NTROI INC. ALL RIGHT RESERVED</div>
+        <ul class="footer-list">
+          <li class="privacy">
+            <button type="button" class="popup-btn">PRIVACY POLICY</button>
+          </li>
+          <li class="terms">
+            <button type="button" class="popup-btn">TERMS OF USE</button>
+          </li>
+          <li class="social">
+            <ul class="depth2">
               <li>
-                <a href="">menu01</a>
+                <a href="social-btn">
+                  <i class="ico-discord" aria-hidden="true"></i>
+                </a>
               </li>
               <li>
-                <a href="">menu02</a>
+                <a href="social-btn">
+                  <i class="ico-mideum" aria-hidden="true"></i>
+                </a>
               </li>
               <li>
-                <a href="">menu03</a>
+                <a href="social-btn">
+                  <i class="ico-x" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="social-btn">
+                  <i class="ico-email" aria-hidden="true"></i>
+                </a>
               </li>
             </ul>
-          </div>
-          <div class="address">COOYRIGHT (C)FEBC KOREA ALL RIGHTS RESERVED</div>
-        </div>
-        <div class="footer-social">
-          <ul>
-            <li><a href="">
-                <span>페이스북</span>
-              </a></li>
-            <li><a href="">
-                <span>트위터</span>
-              </a></li>
-            <li><a href="">
-                <span>블로그</span>
-              </a></li>
-          </ul>
-        </div>
+          </li>
+        </ul>
       </div>
+
     </footer>
     <!-- //footer include-->
-
   </div>
   <div class="dimm"></div>
   <script src="../assets/script/lib/swiper-bundle.min.js"></script>
