@@ -51,6 +51,7 @@ const setFn = {
     let featureSwiper = null;
     let isSwiperInitialized = false;
     let resizeTimeout;
+    const progress = document.querySelector(".progress-bar");
 
     function initSwiper() {
       if (window.innerWidth >= 768 && !isSwiperInitialized) {
@@ -67,6 +68,11 @@ const setFn = {
           },
         });
         isSwiperInitialized = true;
+        featureSwiper.on("transitionStart", function (e) {
+          const activeIndex = e.wrapperEl.querySelector(".swiper-slide-active").dataset.swiperSlideIndex;
+          const progressWidth = 20 * activeIndex;
+          progress.style.left = `${progressWidth}%`;
+        });
       } else if (window.innerWidth < 768 && isSwiperInitialized) {
         featureSwiper.destroy(true, true);
         featureSwiper = null;
@@ -76,6 +82,9 @@ const setFn = {
 
     // Initialize Swiper on page load
     initSwiper();
+    if (window.innerWidth >= 768) {
+      progress.closest(".progress-bar-wrapper").style.width = featureSwiper.slidesSizesGrid[0] + "px";
+    }
 
     // Reinitialize Swiper on window resize with debounce
     window.addEventListener("resize", () => {
@@ -85,7 +94,23 @@ const setFn = {
         if ((currentWidth >= 768 && !isSwiperInitialized) || (currentWidth < 768 && isSwiperInitialized)) {
           initSwiper();
         }
+        if (window.innerWidth >= 768) {
+          progress.closest(".progress-bar-wrapper").style.width = featureSwiper.slidesSizesGrid[0] + "px";
+        }
       }, 50); // Adjust the debounce delay as needed
+    });
+    gsap.to(".main-visual-wrapper .motion-box, .main-visual-wrapper img", 0.8, {
+      delay: 0.8,
+      y: 0,
+      ease: "power4.out",
+      stagger: 0.1,
+      onComplete() {
+        gsap.to(".main-visual-wrapper .btn-area", 0.4, {
+          y: 0,
+          alpha: 1,
+          ease: "power4.out",
+        });
+      },
     });
   },
 };
