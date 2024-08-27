@@ -43,7 +43,9 @@
             </p>
           </div>
         </div>
+        <div class="layer-wrap">
 
+        </div>
       </div>
     </div>
 
@@ -52,7 +54,19 @@
   <script src="../assets/script/lib/swiper-bundle.min.js"></script>
   <script src="../assets/script/lib/gsap.js"></script>
   <script src="../assets/script/common.js"></script>
+  <script>
+    const dialog = setFn.dialog({
+      message: "In order to continue, please accept out Terms of service and Privacy policy.",
+      confirm() {
+        alert('확인')
+      },
+      cancel() {
+        alert('취소')
+      }
+    })
+    dialog.open()
 
+  </script>
 </body>
 
 </html>
