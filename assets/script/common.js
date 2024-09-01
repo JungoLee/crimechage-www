@@ -215,6 +215,8 @@ const setFn = {
     const btnAllmenu = header.querySelector(".btn-allmenu");
     const btnClose = header.querySelector(".close-btn");
     const dimmed = header.querySelector(".dimmed");
+
+    const loginInfo = header.querySelectorAll(".login-info");
     const body = document.body;
     let isMenuOpen = false;
 
@@ -243,6 +245,50 @@ const setFn = {
         isChanged = false;
       }
     });
+    if (document.querySelector(".logout-btn-box")) {
+      loginInfo.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const logoutBtnBox = btn.closest(".login-info-wrapper").querySelector(".logout-btn-box");
+          if (logoutBtnBox.isOpen) {
+            logoutBtnBox.isOpen = false;
+            gsap.to(logoutBtnBox, 0.3, {
+              y: 10,
+              alpha: 0,
+              overwrite: true,
+              onComplete() {
+                logoutBtnBox.style.display = "none";
+              },
+            });
+          } else if (!logoutBtnBox.isOpen) {
+            logoutBtnBox.isOpen = true;
+            logoutBtnBox.style.display = "block";
+            gsap.to(logoutBtnBox, 0.3, {
+              alpha: 1,
+              y: 0,
+              overwrite: true,
+              onComplete() {},
+            });
+          }
+        });
+      });
+      body.addEventListener("click", (e) => {
+        if (e.target.closest(".login-info-wrapper")) return;
+        document.querySelectorAll(".logout-btn-box").forEach((box) => {
+          box.isOpen = false;
+        });
+        gsap.to(".logout-btn-box", 0.3, {
+          y: 10,
+          alpha: 0,
+          overwrite: true,
+          onComplete(e) {
+            document.querySelectorAll(".logout-btn-box").forEach((box2) => {
+              box2.style.display = "none";
+            });
+          },
+        });
+      });
+    }
+
     function open() {
       nav.style.display = "block";
       gsap.to(nav, 0.3, {
@@ -292,6 +338,53 @@ const setFn = {
       });
     });
   },
+  visualText() {
+    const scope = document.querySelector(".container-visual-area");
+    const publicTexts = scope.querySelectorAll(".public-txt");
+    const line = `
+    <div class="line" style="position:absolute; left:0;
+    width:0; height:3px; background-color:#fff; bottom: -10px;"></div>
+    `;
+    scope.querySelector(".title").insertAdjacentHTML("beforeend", line);
+
+    publicTexts.forEach((publicText) => {
+      publicText.innerHTML.split("").forEach((text, idx) => {
+        if (idx === 0) {
+          publicText.innerHTML = "";
+        }
+        const html = `
+        <span class="wrapper">
+          <span class="txt">
+          ${text}
+          </span>
+        </span>
+        `;
+        //
+        publicText.innerHTML += html;
+      });
+      publicText.style.opacity = 1;
+    });
+    gsap.to(scope.querySelectorAll(".txt"), 1, {
+      stagger: 0.05,
+      ease: "power3.out",
+      y: 0,
+    });
+    const tl = gsap.timeline();
+    tl.to(".line", 1, {
+      width: "100%",
+      left: 0,
+      ease: "power3.out",
+    }).to(
+      ".line",
+      0.5,
+      {
+        width: 0,
+        left: "100%",
+        ease: "power3.out",
+      },
+      "-=0.5",
+    );
+  },
 };
 document.addEventListener("DOMContentLoaded", function () {
   setFn.onYouTubeIframeAPIReady();
@@ -304,6 +397,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (document.querySelector(".btn-gotop")) {
     setFn.gotop();
+  }
+  if (document.querySelector(".container-visual-area")) {
+    setFn.visualText();
   }
   // swiper feature-swiper init
 });

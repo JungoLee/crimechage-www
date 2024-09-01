@@ -36,11 +36,16 @@
           </h1>
           <!-- 로그인 버튼 -->
 
-          <a href="#none" class="btn-login mo-show">
-            <i class="ico-login" aria-hidden="true"></i>
-            <span class="hide-txt">로그인</span>
-          </a>
 
+          <div class="login-info-wrapper mo-show">
+            <button type="button" class="login-info mo-show">
+              <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+              <span class="hide-txt">로그아웃 하기</span>
+            </button>
+            <div class="logout-btn-box">
+              <a href="" class="logout-btn">Logout</a>
+            </div>
+          </div>
 
 
         </div>
@@ -48,7 +53,7 @@
 
           <ul class="gnb-area left">
             <li class="one-depth home">
-              <a href="" class="active">
+              <a href="" class="">
                 <img src="../assets/images/logo.png" class="mo-show logo" alt="">
                 <span class="pc-show">HOME</span>
               </a>
@@ -77,12 +82,19 @@
               </a>
             </li>
 
-            <li class="one-depth pc-show">
-              <a href="" class="btn">
-                <span class="txt">GET START</span>
-              </a>
-            </li>
 
+            <li class="one-depth pc-show">
+              <div class="login-info-wrapper">
+                <button type="button" class="login-info mo-show">
+                  <span class="id f-bar-md">hello01@gmail.com</span>
+                  <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+                  <span class="hide-txt">로그아웃 하기</span>
+                </button>
+                <div class="logout-btn-box">
+                  <a href="" class="logout-btn">Logout</a>
+                </div>
+              </div>
+            </li>
 
 
           </ul>
@@ -102,8 +114,48 @@
 
     <div id="container">
       <div id="content">
-        <div class="error-container-page">
-          <img class="chip-img" src="../assets/images/error_img_404.png" alt="">
+        <div class="container-visual-area">
+          <div class="visual-area">
+            <div class="visual-img-box">
+              <img src="../assets/images/visual_bg_img01.jpg" alt="">
+            </div>
+            <div class="visual-txt">
+              <h2 class="title">
+                <span class="public-txt type02">NFT</span>
+                <span class="public-txt">DRAW</span>
+              </h2>
+            </div>
+            <!-- 라우트 이동할떄 setFn.visualText();  실행 필요 -->
+          </div>
+          <div class="breadcrunb-area">
+            <ul class="breadcrunb-list">
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">HOME</a>
+              </li>
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">NFT RRAW</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="nft-container-page">
+          <h3 class="public-txt f-40 public-title">GET
+            <span class="white">LIMITED </span> NFT NOW!
+          </h3>
+          <p class="public-txt f-22 f-bar-md">Only 27 Legendary Partner & Weapon, Special badges exist!!!<br>This
+            limited NFT won't be reissued and offers powerful in-game benefits.<br>Get your Legendary now!</p>
+          <div class="img-box">
+            <img src="../assets/images/nft_img01.jpg" alt="">
+            <div class="more-info-box">
+              <a href="" class="more-info">
+                <img src="../assets/images/more_info_btn.png" alt="">
+              </a>
+            </div>
+
+          </div>
+          <button type="button" class="btn">
+            <span class="txt">Badge Draw (Ticket : 3)</span>
+          </button>
         </div>
 
       </div>
