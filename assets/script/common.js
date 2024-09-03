@@ -117,6 +117,9 @@ const setFn = {
     const opt = {
       confirm: () => {},
       cancel: () => {},
+      onClose: () => {},
+      confirmText: "CONTINUE",
+      cancelText: "CANCEL",
       ...options,
     };
 
@@ -124,19 +127,44 @@ const setFn = {
 <div class="dialog-container">
   <div class="dimmed" aria-hidden="true"></div>
   <div class="dialog-frame">
-    <div class="dialog-content f-bar-md">${opt.message}</div>
+    <div class="dialog-content f-bar-md">
+      <p class="message">
+        ${opt.message}
+      </p>
+
+      ${
+        opt.img
+          ? `<div class="img-box">
+              <img src="${opt.img}" alt="img">
+            </div>`
+          : ``
+      }
+    </div>
     <div class="dialog-footer">
-      <button type="button" class="btn grey cancle">
-        <span class="txt">CANCEL</span>
-      </button>
-      <button type="button" class="btn confirm">
-        <span class="txt">CONTINUE</span>
-      </button>
+
+      ${
+        opt.cancelText
+          ? `<button type="button" class="btn grey cancle">
+          <span class="txt">${opt.cancelText}</span>
+        </button>`
+          : ``
+      }
+      ${
+        opt.confirmText
+          ? `<button type="button" class="btn confirm">
+          <span class="txt">${opt.confirmText}</span>
+        </button>`
+          : ``
+      }
     </div>
   </div>
 </div>
 `;
-    const layerWrap = document.querySelector(".layer-wrap");
+    let layerWrap = document.querySelector(".layer-wrap");
+    if (!layerWrap) {
+      document.body.insertAdjacentHTML("beforeend", `<div class="layer-wrap"></div>`);
+      layerWrap = document.querySelector(".layer-wrap");
+    }
     layerWrap.insertAdjacentHTML("beforeend", dialog);
     const dialogContainer = document.querySelector(".dialog-container");
     const dialogContent = dialogContainer.querySelector(".dialog-content");
@@ -146,20 +174,37 @@ const setFn = {
     const cancelBtn = dialogFooter.querySelector(".cancle");
     const dimmed = dialogContainer.querySelector(".dimmed");
 
-    confirmBtn.addEventListener("click", () => {
-      opt.confirm();
-      close();
-    });
-    cancelBtn.addEventListener("click", () => {
-      opt.cancel();
-      close();
-    });
+    const messageBox = dialogContent.querySelector(".message");
 
-    dimmed.addEventListener("click", () => {
-      close();
-    });
+    if (confirmBtn) {
+      confirmBtn.addEventListener("click", () => {
+        opt.confirm();
+        close();
+      });
+    }
 
-    function open() {
+    if (cancelBtn) {
+      cancelBtn.addEventListener("click", () => {
+        opt.cancel();
+        close();
+      });
+    }
+
+    if (dimmed) {
+      dimmed.addEventListener("click", () => {
+        opt.onClose();
+        close();
+      });
+    }
+    function open(options) {
+      if (options?.massage) {
+        messageBox.textContent = options?.massage;
+      }
+      if (options?.img) {
+        console.log(dialogContent.querySelector(".img-box img"));
+        console.log(dialogContent.querySelector(".img-box img").src);
+        dialogContent.querySelector(".img-box img").src = options?.img;
+      }
       gsap.fromTo(
         dialogContainer,
         0.5,
@@ -189,7 +234,6 @@ const setFn = {
         overwrite: true,
         onComplete() {
           dialogContainer.classList.remove("active");
-          dialogContent.innerHTML = "";
         },
       });
       gsap.to(dialogContainer, 0.3, {
@@ -199,7 +243,6 @@ const setFn = {
         overwrite: true,
         onComplete() {
           dialogContainer.style.display = "none";
-          dialogFrame.remove();
         },
       });
     }
@@ -384,6 +427,53 @@ const setFn = {
       },
       "-=0.5",
     );
+  },
+  draw(options) {
+    const opt = {
+      onEnded() {},
+      ...options,
+    };
+    const drawVideo = document.querySelector(".draw-video");
+    const getDraw = document.querySelector(".get-draw");
+    let message = "Draw your own path";
+    let img = "https://via.placeholder.com/150";
+
+    function play() {
+      const paused = drawVideo.paused;
+      if (paused) {
+        drawVideo.play();
+        gsap.to(drawVideo, 0.5, {
+          alpha: 1,
+          ease: "power4.out",
+        });
+        drawVideo.closest(".draw-box").classList.add("active");
+      }
+
+      return {
+        paused: paused,
+        playing: !paused,
+      };
+    }
+
+    function end() {
+      drawVideo.currentTime = 0;
+      drawVideo.pause();
+      gsap.to(drawVideo, 0.5, {
+        alpha: 0,
+        ease: "power4.out",
+        onComplete() {
+          drawVideo.closest(".draw-box").classList.remove("active");
+        },
+      });
+    }
+    drawVideo.addEventListener("ended", () => {
+      end();
+      opt.onEnded();
+    });
+    return {
+      play,
+      end,
+    };
   },
 };
 document.addEventListener("DOMContentLoaded", function () {
