@@ -120,90 +120,103 @@ const setFn = {
       onClose: () => {},
       confirmText: "CONTINUE",
       cancelText: "CANCEL",
+      customHTML: false,
+      classAdd: "",
+      confirmDisabled: false,
+      dimmClose: true,
       ...options,
     };
+    const dialog = document.createElement("div");
 
-    const dialog = `
-<div class="dialog-container">
-  <div class="dimmed" aria-hidden="true"></div>
-  <div class="dialog-frame">
-    <div class="dialog-content f-bar-md">
-      <p class="message">
-        ${opt.message}
-      </p>
-
-      ${
-        opt.img
-          ? `<div class="img-box">
-              <img src="${opt.img}" alt="img">
-            </div>`
-          : ``
-      }
-    </div>
-    <div class="dialog-footer">
-
-      ${
-        opt.cancelText
-          ? `<button type="button" class="btn grey cancle">
-          <span class="txt">${opt.cancelText}</span>
-        </button>`
-          : ``
-      }
-      ${
-        opt.confirmText
-          ? `<button type="button" class="btn confirm">
-          <span class="txt">${opt.confirmText}</span>
-        </button>`
-          : ``
-      }
-    </div>
-  </div>
-</div>
-`;
+    dialog.innerHTML = `
+      <div class="dimmed" aria-hidden="true"></div>
+      <div class="dialog-frame">
+        <div class="dialog-content f-bar-md">
+          ${
+            opt.customHTML
+              ? opt.customHTML
+              : `
+                <p class="message">
+                  ${opt.message}
+                </p>
+                ${
+                  opt.img
+                    ? `<div class="img-box">
+                        <img src="${opt.img}" alt="img">
+                      </div>`
+                    : ``
+                }
+              `
+          }
+        </div>
+        <div class="dialog-footer">
+          ${
+            opt.cancelText
+              ? `<button type="button" class="btn grey cancel">
+                  <span class="txt">${opt.cancelText}</span>
+                </button>`
+              : ``
+          }
+          ${
+            opt.confirmText
+              ? `<button type="button" class="btn confirm" ${opt.confirmDisabled ? `disabled` : ``}>
+                  <span class="txt">${opt.confirmText}</span>
+                </button>`
+              : ``
+          }
+        </div>
+      </div>
+    `;
     let layerWrap = document.querySelector(".layer-wrap");
     if (!layerWrap) {
       document.body.insertAdjacentHTML("beforeend", `<div class="layer-wrap"></div>`);
       layerWrap = document.querySelector(".layer-wrap");
     }
-    layerWrap.insertAdjacentHTML("beforeend", dialog);
-    const dialogContainer = document.querySelector(".dialog-container");
+
+    dialog.classList.add("dialog-container");
+    if (opt.classAdd) {
+      dialog.classList.add(opt.classAdd);
+    }
+    console.log(dialog);
+
+    const dialogContainer = dialog;
     const dialogContent = dialogContainer.querySelector(".dialog-content");
     const dialogFrame = dialogContainer.querySelector(".dialog-frame");
     const dialogFooter = dialogContainer.querySelector(".dialog-footer");
     const confirmBtn = dialogFooter.querySelector(".confirm");
-    const cancelBtn = dialogFooter.querySelector(".cancle");
+    const cancelBtn = dialogFooter.querySelector(".cancel");
     const dimmed = dialogContainer.querySelector(".dimmed");
 
     const messageBox = dialogContent.querySelector(".message");
 
-    if (confirmBtn) {
+    if (confirmBtn && !opt.confirmDisabled) {
       confirmBtn.addEventListener("click", () => {
         opt.confirm();
-        close();
       });
     }
 
     if (cancelBtn) {
       cancelBtn.addEventListener("click", () => {
         opt.cancel();
-        close();
       });
     }
 
-    if (dimmed) {
+    if (dimmed && opt.dimmClose) {
       dimmed.addEventListener("click", () => {
         opt.onClose();
         close();
       });
     }
     function open(options) {
+      layerWrap.append(dialog);
       if (options?.massage) {
         messageBox.textContent = options?.massage;
       }
       if (options?.img) {
-        console.log(dialogContent.querySelector(".img-box img"));
-        console.log(dialogContent.querySelector(".img-box img").src);
         dialogContent.querySelector(".img-box img").src = options?.img;
+      }
+      if (options?.customHTML) {
+        dialogContent.innerHTML = options?.customHTML;
       }
       gsap.fromTo(
         dialogContainer,
@@ -243,6 +256,7 @@ const setFn = {
         overwrite: true,
         onComplete() {
           dialogContainer.style.display = "none";
+          dialog.remove();
         },
       });
     }
@@ -474,6 +488,47 @@ const setFn = {
       play,
       end,
     };
+  },
+  tooltip(el) {
+    const tooltip = el;
+    const btn = tooltip.querySelector(".tooltip-btn");
+    const content = tooltip.querySelector(".tooltip-detail");
+    btn.addEventListener("click", () => {
+      if (tooltip.isOpen) {
+        tooltip.isOpen = false;
+        gsap.to(content, 0.3, {
+          y: 10,
+          alpha: 0,
+          overwrite: true,
+          onComplete() {
+            content.style.display = "none";
+          },
+        });
+      } else if (!tooltip.isOpen) {
+        tooltip.isOpen = true;
+        content.style.display = "block";
+        gsap.to(content, 0.3, {
+          alpha: 1,
+          y: 0,
+          overwrite: true,
+          onComplete() {},
+        });
+      }
+    });
+    document.body.addEventListener("click", (e) => {
+      if (e.target.closest(".tooltip-area") === tooltip) return;
+      if (tooltip.isOpen) {
+        tooltip.isOpen = false;
+        gsap.to(content, 0.3, {
+          y: 10,
+          alpha: 0,
+          overwrite: true,
+          onComplete(e) {
+            content.style.display = "none";
+          },
+        });
+      }
+    });
   },
 };
 document.addEventListener("DOMContentLoaded", function () {

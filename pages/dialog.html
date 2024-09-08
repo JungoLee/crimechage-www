@@ -56,12 +56,14 @@
   <script src="../assets/script/common.js"></script>
   <script>
     const dialog = setFn.dialog({
-      message: "In order to continue, please accept out Terms of service and Privacy policy.",
+      message: "In order to continue, please accept out Terms<br class=pc_show />of service and Privacy policy.",
       confirm() {
         alert('확인')
+        dialog.close();
       },
       cancel() {
         alert('취소')
+        dialog.close();
       }
     })
     dialog.open()

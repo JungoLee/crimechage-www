@@ -136,7 +136,7 @@
                 <a href="" class="breadcrunb-link f-bar-bold">MY ASSET</a>
               </li>
               <li class="breadcrunb-item">
-                <a href="" class="breadcrunb-link f-bar-bold">WEB3 INVENTORY</a>
+                <a href="" class="breadcrunb-link f-bar-bold">C4 WALLET</a>
               </li>
             </ul>
           </div>
@@ -146,10 +146,10 @@
             <div class="tab-container">
               <div class="inventory-top">
                 <div class="tab-head">
-                  <button class="tab-btn active" type="button">
+                  <button class="tab-btn" type="button">
                     <span class="txt">WEB3 INVENTORY</span>
                   </button>
-                  <button class="tab-btn" type="button">
+                  <button class="tab-btn active" type="button">
                     <span class="txt">C4 WALLET</span>
                   </button>
                 </div>
@@ -161,10 +161,10 @@
                         <span class="value">
                           0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</span>
                       </p>
-                      <!-- <p class="aptos">
+                      <p class="aptos">
                         <span class="key">APTOS : </span>
                         <span class="value"> 15.4653 APT</span>
-                      </p> -->
+                      </p>
                     </div>
                     <button type="button" class="copy-btn"></button>
                   </div>
@@ -183,7 +183,7 @@
                       <div class="tooltip-detail">
                         <ul class="tooltip-lists">
                           <li class="tooltip-list">
-                            <button class="dialog-open-btn c4" type="button">C4 Wallet Transfer</button>
+                            <button class="dialog-open-btn c4" type="button">Inventory Transfer</button>
                           </li>
                           <li class="tooltip-list">
                             <button class="dialog-open-btn ex" type="button">External Wallet Transfer</button>
@@ -197,13 +197,13 @@
                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9nu7n0E08-6IWTwb9DV6B2sCAjrEBNUTlA&s" alt="">
                     </div>
                     <div class="tooltip-area">
-                      <button type="button" class="tooltip-btn type02">
+                      <button type="button" class="tooltip-btn">
                         <i class="ico-tooltip" aria-hidden="true"></i>
                       </button>
                       <div class="tooltip-detail">
                         <ul class="tooltip-lists">
                           <li class="tooltip-list">
-                            <button class="dialog-open-btn c4" type="button">C4 Wallet Transfer</button>
+                            <button class="dialog-open-btn c4" type="button">Inventory Transfer</button>
                           </li>
                           <li class="tooltip-list">
                             <button class="dialog-open-btn ex" type="button">External Wallet Transfer</button>
@@ -347,8 +347,12 @@
         confirmDialog.close()
       }
     })
+    // APT : NOT ENOUGH 일떄
     const dialog = setFn.dialog({
       confirmText: 'OK',
+      // APT : NOT ENOUGH 일때
+      // confirmText: 'APT : NOT<br>ENOUGH',
+      // confirmDisabled: true,
       cancelText: 'CANCEL',
       confirm() {
         const customHTML = `
@@ -374,13 +378,13 @@
       let addressContentHTML, addressHeadHTML
       if (type === 'c4') {
         addressHeadHTML = `
-<span class="txt">INVENTORY</span>
+<span class="txt">C4 WALLET</span>
 <i class="ico-arrow-right"></i><br class="mo-show"/>
-<span class="txt">TRANSFER TO C4 WALLET</span>
+<span class="txt">TRANSFER TO WALLET</span>
 `
         addressContentHTML = `
 <div class="info-box">
-  <p class="info-title">INVENTORY TARGET ADDRESS</p>
+  <p class="info-title">INVENTORY ADDRESS</p>
   <p class="info-desc">
     <span class="txt">0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</span>
   </p>
@@ -389,13 +393,13 @@
         `
       } else if (type === 'ex') {
         addressHeadHTML = `
-<span class="txt">INVENTORY</span>
+<span class="txt">C4 WALLET</span>
 <i class="ico-arrow-right"></i><br class="mo-show"/>
 <span class="txt">TRANSFER TO EXTERNAL WALLET</span>
 `
         addressContentHTML = `
 <div class="info-box">
-  <p class="info-title">INVENTORY TARGET ADDRESS</p>
+  <p class="info-title">TRANSFER TARGET WALLET</p>
   <p class="info-input">
     <input type="text" class="input-txt" placeholder="Write to the transfer wallet." />
   </p>
@@ -413,7 +417,7 @@
     </div>
     <div class="item-info">
       <div class="info-box">
-        <p class="info-title">INVENTORY ADDRESS</p>
+        <p class="info-title">C4 WALLET ADDRESS</p>
         <p class="info-desc">
           <span class="txt">0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</span>
         </p>
@@ -426,7 +430,8 @@
   </div>
   <div class="transfer-foot">
     <p class="txt">Do you agree to transfer this asset to the wallet?</p>
-    <p class="txt small">[ Free Transfer Ticket(s) : 1 ]</p>
+    <!-- 없을때 error 클래스 value 에 추가 -->
+    <p class="txt small">Gas Fee: 0.0001 APT <span class="value">[ APT held: 0.05 APT ]</span> </p>
   </div>
 </div>
         `
