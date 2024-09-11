@@ -220,29 +220,50 @@
   <script src="../assets/script/lib/gsap.js"></script>
   <script src="../assets/script/common.js"></script>
   <script>
+    // class : legenday epic rare common
+    const customHTML = `
+      <div class="dialog-box">
+        <div class="dialog-head">
+          <h3 class="public-txt f-40 public-title">CONGRATULATIONS!</h3>
+        </div>
+        <div class="dialog-body">
+          <div class="img-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlvAFuVBkRtaJspZf6mhJjdYe3zw1fBGmCq_Eigx9hpgDISrNv6dgO6st_WVeIZjVptyU&usqp=CAU" alt="">
+          </div>
+          <p class="public-txt f-16 f-bar-md legendary">Legendary</p>
+          <p class="public-txt f-16 f-bar-md rare">Rare</p>
+          <p class="public-txt f-16 f-bar-md epic">Epic</p>
+          <p class="public-txt f-16 f-bar-md common">Common</p>
+          <p class="public-txt f-22 f-bar-md">Matilda #002</p>
+          <p class="public-txt f-14 f-bar-md">You can check the bedges you hava camed in My Asset</p>
+        </div>
+      </div>
+
+          `
+    const dialog = setFn.dialog({
+      cancelText: false,
+      confirmText: 'CONFIRM',
+      confirm() {
+        console.log("get")
+        draw.end()
+        dialog.close()
+      },
+      onClose() {
+        draw.end()
+        dialog.close()
+      }
+    });
     const draw = setFn.draw({
       onEnded() {
         // 비디오 끝날때
 
         dialog.open({
-          massage: "Unique Gauntlet",
-          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlvAFuVBkRtaJspZf6mhJjdYe3zw1fBGmCq_Eigx9hpgDISrNv6dgO6st_WVeIZjVptyU&usqp=CAU"
+          customHTML
         });
 
       }
     })
-    const dialog = setFn.dialog({
-      cancelText: false,
-      confirmText: 'GET',
-      img: true,
-      confirm() {
-        console.log("get")
-        draw.end()
-      },
-      onClose() {
-        draw.end()
-      }
-    });
+
 
     document.querySelector('.get-draw').addEventListener('click', () => {
       const {
@@ -252,8 +273,7 @@
       // if (paused) {
       //   setTimeout(() => {
       //     dialog.open({
-      //       massage: "Rare Gun ",
-      //       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9nu7n0E08-6IWTwb9DV6B2sCAjrEBNUTlA&s"
+      //       customHTML
       //     });
       //   }, 3000)
       // }
