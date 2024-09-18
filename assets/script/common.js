@@ -601,6 +601,7 @@ const setFn = {
           if (checkedAllEnter) {
             input.checked = false;
             return;
+          } else {
           }
         }
         $scope.querySelectorAll(".merge-group img").forEach((img) => {
@@ -630,14 +631,20 @@ const setFn = {
             }
           }
         });
-        pass = false;
+        const checkedAllEnter = checkAllEnter();
+        if (checkedAllEnter) {
+          mergeBtn.disabled = false;
+          return;
+        } else {
+          mergeBtn.disabled = true;
+        }
       });
     });
 
     removeBtn.forEach((remove) => {
       remove.addEventListener("click", (btn) => {
         const img = remove.closest(".merge-item").querySelector("img");
-
+        mergeBtn.disabled = true;
         inputs.forEach((input, idx) => {
           const { src } = input.closest(".item").querySelector("img");
 
@@ -664,9 +671,6 @@ const setFn = {
     });
 
     function checkAllEnter() {
-      console.log("------------------");
-      console.log($scope.querySelectorAll(".merge-group img").length);
-      console.log($scope.querySelectorAll(".merge-group img.checked").length);
       if ($scope.querySelectorAll(".merge-group img.checked").length === $scope.querySelectorAll(".merge-group img").length) {
         return true;
       }
