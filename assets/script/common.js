@@ -177,7 +177,6 @@ const setFn = {
     if (opt.classAdd) {
       dialog.classList.add(opt.classAdd);
     }
-    console.log(dialog);
 
     const dialogContainer = dialog;
     const dialogContent = dialogContainer.querySelector(".dialog-content");
@@ -529,6 +528,149 @@ const setFn = {
         });
       }
     });
+  },
+  merge() {
+    const $scope = document.querySelector(".merge-container");
+    const inputs = $scope.querySelectorAll("input");
+    const mergeBtn = $scope.querySelector(".merge-btn");
+    const removeBtn = $scope.querySelectorAll(".remove-btn");
+
+    const confrimDialog = setFn.dialog({
+      cancelText: false,
+      confirmText: "CONFIRM",
+      confirm() {
+        dialog.close();
+        confrimDialog.close();
+        $scope.querySelector(".result-img-box img").src = "https://png.pngtree.com/png-vector/20231215/ourmid/pngtree-black-gaming-character-png-image_11253666.png";
+        $scope.querySelector(".result-img-box img").style.opacity = 1;
+      },
+      onClose() {
+        dialog.close();
+        confrimDialog.close();
+      },
+    });
+
+    const dialog = setFn.dialog({
+      confirmText: "MERGE",
+      cancelText: "CLOSE",
+      customHTML: `
+<div class="caution-wrap">
+  <div class="caution-head f-22">NFT BADGE MERGE</div>
+  <div class="caution-content">
+    <p class="txt">
+      Are you sure you want to<br/>use a badge to perform the Merge?
+
+    </p>
+  </div>
+</div>`,
+      confirm() {
+        confrimDialog.open({
+          customHTML: `
+      <div class="dialog-box">
+        <div class="dialog-head">
+          <h3 class="public-txt f-40 public-title">CONGRATULATIONS!</h3>
+        </div>
+        <div class="dialog-body">
+          <div class="img-box">
+            <img src="https://png.pngtree.com/png-vector/20231215/ourmid/pngtree-black-gaming-character-png-image_11253666.png" alt="">
+          </div>
+          <p class="public-txt f-16 f-bar-md legendary">Legendary</p>
+          <p class="public-txt f-16 f-bar-md rare">Rare</p>
+          <p class="public-txt f-16 f-bar-md epic">Epic</p>
+          <p class="public-txt f-16 f-bar-md common">Common</p>
+          <p class="public-txt f-22 f-bar-md">Matilda #002</p>
+          <p class="public-txt f-14 f-bar-md">You can check the bedges you hava camed in My Asset</p>
+        </div>
+      </div>
+
+          `,
+        });
+      },
+      cancel() {
+        dialog.close();
+      },
+    });
+
+    inputs.forEach((input, idx) => {
+      input.addEventListener("change", (e) => {
+        const { src } = input.closest(".item").querySelector("img");
+
+        let alreadyTrue;
+        if (input.checked) {
+          const checkedAllEnter = checkAllEnter();
+          if (checkedAllEnter) {
+            input.checked = false;
+            return;
+          }
+        }
+        $scope.querySelectorAll(".merge-group img").forEach((img) => {
+          if (input.checked) {
+            if (alreadyTrue) return;
+            if (!img.getAttribute("src")) {
+              img.src = src;
+              img.classList.add("checked");
+              gsap.to(img, 0.2, {
+                x: 0,
+                ease: "power2.inOut",
+                overwrite: true,
+              });
+              alreadyTrue = true;
+            }
+          } else {
+            if (img.src === src) {
+              img.classList.remove("checked");
+              gsap.to(img, 0.2, {
+                x: "100%",
+                ease: "power2.inOut",
+                overwrite: true,
+                onComplete() {
+                  img.src = "";
+                },
+              });
+            }
+          }
+        });
+        pass = false;
+      });
+    });
+
+    removeBtn.forEach((remove) => {
+      remove.addEventListener("click", (btn) => {
+        const img = remove.closest(".merge-item").querySelector("img");
+
+        inputs.forEach((input, idx) => {
+          const { src } = input.closest(".item").querySelector("img");
+
+          if (img.src === src) {
+            input.checked = false;
+          }
+        });
+        img.classList.remove("checked");
+        gsap.to(img, 0.2, {
+          x: "100%",
+          ease: "power2.inOut",
+          overwrite: true,
+          onComplete() {
+            img.src = "";
+          },
+        });
+      });
+    });
+    mergeBtn.addEventListener("click", () => {
+      const checkedAllEnter = checkAllEnter();
+      if (checkedAllEnter) {
+        dialog.open();
+      }
+    });
+
+    function checkAllEnter() {
+      console.log("------------------");
+      console.log($scope.querySelectorAll(".merge-group img").length);
+      console.log($scope.querySelectorAll(".merge-group img.checked").length);
+      if ($scope.querySelectorAll(".merge-group img.checked").length === $scope.querySelectorAll(".merge-group img").length) {
+        return true;
+      }
+    }
   },
 };
 document.addEventListener("DOMContentLoaded", function () {
