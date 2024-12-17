@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta charset="utf-8" />
+  <title>Crime & Chase</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:description" content="" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link href="../assets/styles/style.css" type="text/css" rel="stylesheet" />
+  <style>
+    .btn-groups {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .btn-groups .white {
+      margin-left: 1.5rem;
+    }
+
+    .btn-groups .btn {
+      width: 28rem;
+    }
+
+    .btn-groups i {
+      margin-right: 1.5rem;
+    }
+
+    .table-container {
+      margin-top: 3rem;
+    }
+
+    .reward-container-page {
+      padding-bottom: 16rem;
+      text-align: center;
+    }
+
+    @media (max-width: 767px) {
+      .red.f-60 {
+        font-size: 3.8rem;
+        line-height: 3.8rem;
+        margin-top: 3rem;
+      }
+
+      .public-txt.f-200 {
+        font-size: 8rem;
+        line-height: 8rem;
+        margin-top: 2rem;
+      }
+
+      .explain-txt.public-txt {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+        padding: 0 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .horizon-line.public-txt {
+        font-size: 3.8rem;
+        line-height: 3.8rem;
+        margin-top: 6rem;
+
+      }
+
+      .explain-txt.public-txt.mt-30 {
+        margin-top: 2rem;
+      }
+
+      .table-container .table-scroll-wrapper {
+        min-width: auto;
+      }
+
+      .f-bar-bold.mt-60 {
+        font-size: 2rem;
+        line-height: 2rem;
+        margin-top: 4rem;
+      }
+
+      .f-bar-md.mt-10 {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+        padding: 0 1.5rem;
+      }
+
+      .table-container {
+        padding: 0 1.5rem;
+      }
+
+      .table-container .table-cell {
+        flex: 1;
+        width: 33.3333%;
+        flex-wrap: wrap;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        padding: .8rem 0;
+        min-height: 3.4rem;
+      }
+
+      .important-notice.public-txt {
+        font-size: 3rem;
+        line-height: 3rem;
+        margin-top: 6rem;
+      }
+
+      .reward-container-page {
+        padding-bottom: 12.8rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <!-- header include-->
+    <header id="header" class="header f-bar-bold">
+      <div class="header-inner">
+        <div class="header-util">
+          <button type="button" class="btn-allmenu mo-show">
+            <i class="ico-allmenu" aria-hidden="true"></i>
+            <span class="hide-txt">전체메뉴</span>
+          </button>
+          <h1>
+            <a href="" class="logo">
+              <img src="../assets/images/logo.png" alt="">
+              <span class="hide-txt">CRIME & CHASE conlict city</span>
+            </a>
+          </h1>
+          <!-- 로그인 버튼 -->
+
+
+          <div class="login-info-wrapper mo-show">
+            <button type="button" class="login-info mo-show">
+              <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+              <span class="hide-txt">로그아웃 하기</span>
+            </button>
+            <div class="logout-btn-box">
+              <a href="" class="logout-btn">Logout</a>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="header-nav">
+
+          <ul class="gnb-area left">
+            <li class="one-depth home">
+              <a href="" class="">
+                <img src="../assets/images/logo.png" class="mo-show logo" alt="">
+                <span class="pc-show">HOME</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>STORE</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>NFT DRAW</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>NFT MERGE</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>PUZZLE</span>
+              </a>
+            </li>
+            <li class="one-depth relative">
+              <a href="" class="two-depth-btn">
+                <span>PLAY TEST</span>
+              </a>
+              <div class="play-test-box">
+                <a href="" class="play-test-btn">REWARD</a>
+                <a href="" class="play-test-btn">CREATOR</a>
+              </div>
+              <style>
+                .play-test-box {
+                  position: absolute;
+                  right: 50%;
+                  top: calc(100% + -2.5rem);
+                  transform: translateY(10px) translateX(50%);
+                  border-radius: 1rem;
+                  background-color: #000;
+                  padding: .5rem 2rem;
+                  /* display: none; */
+                  /* opacity: 0; */
+                }
+
+                .play-test-box .play-test-btn {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 4.6rem;
+                  padding: 1.3rem 0;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.25);
+                  font-family: "Barlow", sans-serif;
+                  font-weight: 500;
+                  font-style: normal;
+                  text-align: left;
+                }
+
+                .play-test-box .play-test-btn+.play-test-btn {
+                  border-top: 1px solid #444444;
+                }
+
+              </style>
+            </li>
+
+          </ul>
+          <ul class="gnb-area">
+            <li class="one-depth">
+              <a href="">
+                <span>MY ASSET</span>
+              </a>
+            </li>
+            <li class="one-depth mo-show">
+              <a href="">
+                <span>LOG IN</span>
+              </a>
+            </li>
+
+
+            <li class="one-depth pc-show">
+              <div class="login-info-wrapper">
+                <button type="button" class="login-info mo-show">
+                  <span class="id f-bar-md">hello01@gmail.com</span>
+                  <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+                  <span class="hide-txt">로그아웃 하기</span>
+                </button>
+                <div class="logout-btn-box">
+                  <a href="" class="logout-btn">Logout</a>
+                </div>
+              </div>
+            </li>
+
+
+          </ul>
+
+          <button type="button" class="close-btn">
+            <i class="ico-close" aria-hidden="true"></i>
+            <span class="hide-txt">close</span>
+          </button>
+        </div>
+      </div>
+      <div class="dimmed mo-show"></div>
+      <!-- 전체메뉴 -->
+      <div class="allmenu" style="display: none">전체메뉴</div>
+      <!-- //전체메뉴 -->
+    </header>
+    <!-- //header include-->
+
+    <div id="container">
+      <div id="content">
+        <div class="container-visual-area">
+          <div class="visual-area">
+            <div class="visual-img-box">
+              <img src="../assets/images/visual_bg_img04.jpg" alt="">
+            </div>
+            <div class="visual-txt">
+              <h2 class="title">
+                <span class="public-txt type02">RE</span>
+                <span class="public-txt">WARD</span>
+              </h2>
+            </div>
+            <!-- 라우트 이동할떄 setFn.visualText();  실행 필요 -->
+          </div>
+          <div class="breadcrunb-area">
+            <ul class="breadcrunb-list">
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">HOME</a>
+              </li>
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">PLAY TEST</a>
+              </li>
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">REWARD</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="reward-container-page">
+          <h3 class="public-txt f-40 public-title">
+            <span class="white">CRIME & CHASE </span> PLAY TEST REWARD
+          </h3>
+          <p class="public-txt red ecenter-flex f-60 mt-60">TOTAL REWARD PRIZE</p>
+          <p class="public-txt orange center-flex f-200 mt-40">$11,000</p>
+          <p class="public-txt f-bar-md center-flex f-22 mt-60 center-txt explain-txt">
+            The Crime&Chase playtest will run from February 1st to Feburary 15th. <br class="pc-show" />
+            Rewards are given based on various content ranking,<br class="pc-show" />
+            with higher rankings earning greater rewards<br class="pc-show" />
+            Join the playtest and claim rewards worth $11,000!
+          </p>
+          <p class="public-txt center-flex f-40 mt-60 pc-show">DOWNLOAD LINK</p>
+          <div class="btn-groups pc-show">
+            <button type="button" class="btn android">
+              <i class="ico-android"></i>
+              <span class="txt">Android Download</span>
+            </button>
+            <button type="button" class="btn white">
+              <i class="ico-ios"></i>
+              <span class="txt">ios Download</span>
+            </button>
+          </div>
+          <p class="public-txt center-flex  f-60 horizon-line mt-100">REWARDS LIST</p>
+          <p class="public-txt block center-txt f-22 f-bar-bold mt-60">1. Participation Reward</p>
+          <p class="public-txt block center-txt f-18 f-bar-md mt-10">
+            All Play Tester will receive &nbsp;<span class="red f-bar-bold">3 NFT DRAW Tickets.</span>
+          </p>
+          <p class="public-txt block center-txt f-22 f-bar-bold mt-60">2. RT EVENT</p>
+          <p class="public-txt block center-txt f-18 f-bar-md mt-10">
+            Retweet the
+            &nbsp; <a href="" class="underline sky-blue f-bar-bold">playtest post</a> &nbsp;
+            weet on the official Crime & Chase Twitter to receive &nbsp;
+            <span class="red f-bar-bold"> 5 DRAW Tickets.</span>
+          </p>
+          <p class="public-txt block center-txt f-22 f-bar-bold mt-60">3. Ranking Reward</p>
+          <p class="public-txt block center-txt f-18 f-bar-md mt-10">
+            Rewards will be given based on the rankings in each contents,<br class="pc-show" />
+            with <span class="red f-bar-bold">Gems awarded</span> equivalent to the prize value.</p>
+          <div class="table-container">
+            <div class="table-scroll-wrapper">
+              <div class="table-head">
+                <div class="table-row">
+                  <div class="table-cell">Contents</div>
+                  <div class="table-cell">Ranking</div>
+                  <div class="table-cell">Reward &nbsp;<span class="f-bar-md">(dollar
+                      worth)</span> </div>
+                </div>
+              </div>
+              <div class="table-body">
+                <div class="table-row">
+                  <div class="table-cell"><span class="row-box" style="height:700%">Battle Power</span> </div>
+                  <div class="table-cell">1st</div>
+                  <div class="table-cell">$300</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">2nd</div>
+                  <div class="table-cell">$200</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">3rd</div>
+                  <div class="table-cell">$100</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">4 ~ 6th</div>
+                  <div class="table-cell">$70</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">7 ~ 10th</div>
+                  <div class="table-cell">$50</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">11 ~ 50th</div>
+                  <div class="table-cell">$40</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">51 ~ 100th</div>
+                  <div class="table-cell">$30</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell"><span class="row-box" style="height:700%">Business
+                      District<br />Domination</span> </div>
+                  <div class="table-cell">1st</div>
+                  <div class="table-cell">$200</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">2nd</div>
+                  <div class="table-cell">$100</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">3rd</div>
+                  <div class="table-cell">$70</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">4 ~ 6th</div>
+                  <div class="table-cell">$50</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">7 ~ 10th</div>
+                  <div class="table-cell">$40</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">11 ~ 50th</div>
+                  <div class="table-cell">$30</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">51 ~ 100th</div>
+                  <div class="table-cell">$20</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell"><span class="row-box" style="height:300%">Blackmerket<br />Conquest</span>
+                  </div>
+                  <div class="table-cell">1st</div>
+                  <div class="table-cell">$50</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">2nd</div>
+                  <div class="table-cell">$30</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">&nbsp;</div>
+                  <div class="table-cell">3rd</div>
+                  <div class="table-cell">$10</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <p class="public-txt center-flex f-18 f-bar-md mt-30 explain-txt">The Blackmarket Conquest is a guild_based
+            content, and
+            rewards
+            are given to all guild members.</p>
+          <p class="public-txt center-flex f-40 mt-100 important-notice">IMPORTANT NOTICE</p>
+          <p class="public-txt block center-txt f-18 f-bar-md mt-30 explain-txt">
+            Participation rewards will be given after the test ends, and the email of <br class="pc-show" />
+            your account must match the mail. on the C4 Web.<br class="pc-show" />
+            Gem rewards will be given after the game launch.<br class="pc-show" />
+            To receive rewards, the mail address of your test account<br class="pc-show" />
+            must match the one used after the game launch.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="go-top-wrap">
+    <button type="button" class="btn-gotop">
+      <i class="ico-go-top" aria-hidden="true"></i>
+      <a class="gotop"><span class="hide-txt">화면 제일위로 이동</span></a>
+    </button>
+  </div>
+
+
+  <!-- footer include-->
+  <footer id="footer" class="footer">
+    <div class="footer-inner">
+      <div CLASS="copyright">COPYRIGHT © 2024 NTROI INC. ALL RIGHT RESERVED</div>
+      <ul class="footer-list">
+        <li class="privacy">
+          <button type="button" class="popup-btn">PRIVACY POLICY</button>
+        </li>
+        <li class="terms">
+          <button type="button" class="popup-btn">TERMS OF USE</button>
+        </li>
+        <li class="social">
+          <ul class="depth2">
+            <li>
+              <a href="social-btn">
+                <i class="ico-discord" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="social-btn">
+                <i class="ico-mideum" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="social-btn">
+                <i class="ico-x" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="social-btn">
+                <i class="ico-email" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </footer>
+  <!-- //footer include-->
+  </div>
+  <div class="dimm"></div>
+  <script src="../assets/script/lib/swiper-bundle.min.js"></script>
+  <script src="../assets/script/lib/gsap.js"></script>
+  <script src="../assets/script/common.js"></script>
+
+</body>
+
+</html>
