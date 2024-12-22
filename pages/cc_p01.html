@@ -15,85 +15,76 @@
   <meta property="og:description" content="" />
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
   <link href="../assets/styles/style.css" type="text/css" rel="stylesheet" />
+  <link href="../assets/styles/style2.css" type="text/css" rel="stylesheet" />
   <style>
-    .btn-groups {
+    .reward-container-page {
+      text-align: center;
+    }
+
+    .reward-container-page .btn-groups {
       text-align: center;
       margin-top: 3rem;
     }
 
-    .btn-groups .white {
+    .reward-container-page .btn-groups .white {
       margin-left: 1.5rem;
     }
 
-    .btn-groups .btn {
+    .reward-container-page .btn-groups .btn {
       width: 28rem;
     }
 
-    .btn-groups i {
+    .reward-container-page .btn-groups i {
       margin-right: 1.5rem;
     }
 
-    .table-container {
+    .reward-container-page .table-container {
+      margin: 0 auto;
       margin-top: 3rem;
     }
 
-    .reward-container-page {
-      padding-bottom: 16rem;
-      text-align: center;
-    }
+
 
     @media (max-width: 767px) {
-      .red.f-60 {
+      .reward-container-page .red.f-60 {
         font-size: 3.8rem;
         line-height: 3.8rem;
         margin-top: 3rem;
       }
 
-      .public-txt.f-200 {
+      .reward-container-page .public-txt.f-200 {
         font-size: 8rem;
         line-height: 8rem;
         margin-top: 2rem;
       }
 
-      .explain-txt.public-txt {
-        font-size: 1.4rem;
-        line-height: 1.7rem;
-        padding: 0 1.5rem;
-        margin-top: 3rem;
-      }
-
-      .horizon-line.public-txt {
+      .reward-container-page .horizon-line.public-txt {
         font-size: 3.8rem;
         line-height: 3.8rem;
         margin-top: 6rem;
-
       }
 
-      .explain-txt.public-txt.mt-30 {
-        margin-top: 2rem;
-      }
-
-      .table-container .table-scroll-wrapper {
+      .reward-container-page .table-container .table-scroll-wrapper {
         min-width: auto;
       }
 
-      .f-bar-bold.mt-60 {
+      .reward-container-page .f-bar-bold.mt-60 {
         font-size: 2rem;
         line-height: 2rem;
         margin-top: 4rem;
       }
 
-      .f-bar-md.mt-10 {
+      .reward-container-page .f-bar-md.mt-10 {
         font-size: 1.4rem;
         line-height: 1.7rem;
         padding: 0 1.5rem;
       }
 
-      .table-container {
+      .reward-container-page .table-container {
         padding: 0 1.5rem;
       }
 
-      .table-container .table-cell {
+      .reward-container-page .table-container .table-cell {
         flex: 1;
         width: 33.3333%;
         flex-wrap: wrap;
@@ -103,15 +94,6 @@
         min-height: 3.4rem;
       }
 
-      .important-notice.public-txt {
-        font-size: 3rem;
-        line-height: 3rem;
-        margin-top: 6rem;
-      }
-
-      .reward-container-page {
-        padding-bottom: 12.8rem;
-      }
     }
 
   </style>
@@ -135,16 +117,11 @@
           </h1>
           <!-- 로그인 버튼 -->
 
+          <a href="#none" class="btn-login mo-show">
+            <i class="ico-login" aria-hidden="true"></i>
+            <span class="hide-txt">로그인</span>
+          </a>
 
-          <div class="login-info-wrapper mo-show">
-            <button type="button" class="login-info mo-show">
-              <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
-              <span class="hide-txt">로그아웃 하기</span>
-            </button>
-            <div class="logout-btn-box">
-              <a href="" class="logout-btn">Logout</a>
-            </div>
-          </div>
 
 
         </div>
@@ -233,19 +210,12 @@
               </a>
             </li>
 
-
             <li class="one-depth pc-show">
-              <div class="login-info-wrapper">
-                <button type="button" class="login-info mo-show">
-                  <span class="id f-bar-md">hello01@gmail.com</span>
-                  <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
-                  <span class="hide-txt">로그아웃 하기</span>
-                </button>
-                <div class="logout-btn-box">
-                  <a href="" class="logout-btn">Logout</a>
-                </div>
-              </div>
+              <a href="" class="btn">
+                <span class="txt">GET START</span>
+              </a>
             </li>
+
 
 
           </ul>

@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta charset="utf-8" />
+  <title>Crime & Chase</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:description" content="" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link href="../assets/styles/style.css" type="text/css" rel="stylesheet" />
+  <link href="../assets/styles/style2.css" type="text/css" rel="stylesheet" />
+  <style>
+    .ico-arrow-red {
+      margin-left: 1rem;
+      vertical-align: .1rem;
+    }
+
+    .more-btn {
+      margin: 0 auto;
+      margin-top: 6rem;
+    }
+
+    .btn-center {
+      text-align: center;
+    }
+
+    @media (max-width: 767px) {
+      .more-btn {}
+
+      .myasset-container-page .inventory-detail {
+        margin-bottom: 0;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <!-- header include-->
+    <header id="header" class="header f-bar-bold">
+      <div class="header-inner">
+        <div class="header-util">
+          <button type="button" class="btn-allmenu mo-show">
+            <i class="ico-allmenu" aria-hidden="true"></i>
+            <span class="hide-txt">전체메뉴</span>
+          </button>
+          <h1>
+            <a href="" class="logo">
+              <img src="../assets/images/logo.png" alt="">
+              <span class="hide-txt">CRIME & CHASE conlict city</span>
+            </a>
+          </h1>
+          <!-- 로그인 버튼 -->
+
+
+          <div class="login-info-wrapper mo-show">
+            <button type="button" class="login-info mo-show">
+              <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+              <span class="hide-txt">로그아웃 하기</span>
+            </button>
+            <div class="logout-btn-box">
+              <a href="" class="logout-btn">Logout</a>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="header-nav">
+
+          <ul class="gnb-area left">
+            <li class="one-depth home">
+              <a href="" class="">
+                <img src="../assets/images/logo.png" class="mo-show logo" alt="">
+                <span class="pc-show">HOME</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>STORE</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>NFT DRAW</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>NFT MERGE</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>PUZZLE</span>
+              </a>
+            </li>
+            <li class="one-depth relative">
+              <a href="" class="two-depth-btn">
+                <span>PLAY TEST</span>
+              </a>
+              <div class="play-test-box">
+                <a href="" class="play-test-btn">REWARD</a>
+                <a href="" class="play-test-btn">CREATOR</a>
+              </div>
+              <style>
+                .play-test-box {
+                  position: absolute;
+                  right: 50%;
+                  top: calc(100% + -2.5rem);
+                  transform: translateY(10px) translateX(50%);
+                  border-radius: 1rem;
+                  background-color: #000;
+                  padding: .5rem 2rem;
+                  /* display: none; */
+                  /* opacity: 0; */
+                }
+
+                .play-test-box .play-test-btn {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 4.6rem;
+                  padding: 1.3rem 0;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.25);
+                  font-family: "Barlow", sans-serif;
+                  font-weight: 500;
+                  font-style: normal;
+                  text-align: left;
+                }
+
+                .play-test-box .play-test-btn+.play-test-btn {
+                  border-top: 1px solid #444444;
+                }
+
+              </style>
+            </li>
+
+          </ul>
+          <ul class="gnb-area">
+            <li class="one-depth">
+              <a href="">
+                <span>MY ASSET</span>
+              </a>
+            </li>
+            <li class="one-depth mo-show">
+              <a href="">
+                <span>LOG IN</span>
+              </a>
+            </li>
+
+
+            <li class="one-depth pc-show">
+              <div class="login-info-wrapper">
+                <button type="button" class="login-info mo-show">
+                  <span class="id f-bar-md">hello01@gmail.com</span>
+                  <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+                  <span class="hide-txt">로그아웃 하기</span>
+                </button>
+                <div class="logout-btn-box">
+                  <a href="" class="logout-btn">Logout</a>
+                </div>
+              </div>
+            </li>
+
+
+          </ul>
+
+          <button type="button" class="close-btn">
+            <i class="ico-close" aria-hidden="true"></i>
+            <span class="hide-txt">close</span>
+          </button>
+        </div>
+      </div>
+      <div class="dimmed mo-show"></div>
+      <!-- 전체메뉴 -->
+      <div class="allmenu" style="display: none">전체메뉴</div>
+      <!-- //전체메뉴 -->
+    </header>
+    <!-- //header include-->
+
+    <div id="container">
+      <div id="content">
+        <div class="container-visual-area">
+          <div class="visual-area">
+            <div class="visual-img-box">
+              <img src="../assets/images/visual_bg_img03.jpg" alt="">
+            </div>
+            <div class="visual-txt">
+              <h2 class="title">
+                <span class="public-txt type02">MY</span>
+                <span class="public-txt ml-30"> ASSET</span>
+              </h2>
+            </div>
+            <!-- 라우트 이동할떄 setFn.visualText();  실행 필요 -->
+          </div>
+          <div class="breadcrunb-area">
+            <ul class="breadcrunb-list">
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">HOME</a>
+              </li>
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">MY ASSET</a>
+              </li>
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">WEB3 INVENTORY</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="myasset-container-page">
+          <div class="inventory-wrap">
+            <div class="tab-container">
+              <div class="inventory-top">
+                <div class="tab-head">
+                  <button class="tab-btn active" type="button">
+                    <span class="txt">WEB3 INVENTORY</span>
+                  </button>
+                  <button class="tab-btn" type="button">
+                    <span class="txt">KEYLESS</span>
+                  </button>
+                </div>
+                <div class="inventory-address">
+                  <div class="left-box">
+                    <div class="id-box">
+                      <p class="address">
+                        <span class="key">ADDRESS : </span>
+                        <span class="value">
+                          0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</span>
+
+                      </p>
+                      <p class="aptos">
+                        <span class="key">APTOS : </span>
+                        <span class="value"> 15.4653 APT</span>
+                        <a href="">
+                          <i class="ico-arrow-red" aria-hidden="true"></i>
+                        </a>
+                      </p>
+                    </div>
+                    <button type="button" class="copy-btn"></button>
+                  </div>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn grey">
+                    <span class="txt">REFRESH</span>
+                    <i class="ico-refresh"></i>
+                  </button>
+                  <button type="button" class="btn my-info-btn">
+                    <span class="txt">MY INFO</span>
+                    <i class="ico-arrow-btn"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="inventory-detail">
+                <ul class="lists">
+                  <li class="list">
+                    <div class="item-box">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9nu7n0E08-6IWTwb9DV6B2sCAjrEBNUTlA&s" alt="">
+                    </div>
+                    <div class="tooltip-area">
+                      <button type="button" class="tooltip-btn">
+                        <i class="ico-tooltip" aria-hidden="true"></i>
+                      </button>
+                      <div class="tooltip-detail">
+                        <ul class="tooltip-lists">
+                          <li class="tooltip-list">
+                            <button class="dialog-open-btn c4" type="button">Inventory Transfer</button>
+                          </li>
+                          <li class="tooltip-list">
+                            <button class="dialog-open-btn ex" type="button">External Wallet Transfer</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9nu7n0E08-6IWTwb9DV6B2sCAjrEBNUTlA&s" alt="">
+                    </div>
+                    <div class="tooltip-area">
+                      <button type="button" class="tooltip-btn type02">
+                        <i class="ico-tooltip" aria-hidden="true"></i>
+                      </button>
+                      <div class="tooltip-detail">
+                        <ul class="tooltip-lists">
+                          <li class="tooltip-list">
+                            <button class="dialog-open-btn c4" type="button">Keyless Transfer</button>
+                          </li>
+                          <li class="tooltip-list">
+                            <button class="dialog-open-btn ex" type="button">External Wallet Transfer</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                      <div class="lock-box">
+                        <i class="ico-lock" aria-hidden="true"></i>
+                        <p class="public-txt f-24">LOCK</p>
+                      </div>
+                    </div>
+                    <div class="tooltip-area">
+                      <button type="button" class="tooltip-btn">
+                        <i class="ico-tooltip" aria-hidden="true"></i>
+                      </button>
+                      <div class="tooltip-detail">
+                        <ul class="tooltip-lists">
+                          <li class="tooltip-list">
+                            <button class="dialog-open-btn c4" type="button">Keyless Transfer</button>
+                          </li>
+                          <li class="tooltip-list">
+                            <button class="dialog-open-btn ex" type="button">External Wallet Transfer</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+
+                    </div>
+                    <div class="tooltip-area">
+                      <button type="button" class="tooltip-btn type02">
+                        <i class="ico-tooltip" aria-hidden="true"></i>
+                      </button>
+                      <div class="tooltip-detail">
+                        <ul class="tooltip-lists">
+                          <li class="tooltip-list">
+                            <button class="dialog-open-btn c4" type="button">Keyless Transfer</button>
+                          </li>
+                          <li class="tooltip-list">
+                            <button class="dialog-open-btn ex" type="button">External Wallet Transfer</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                      <div class="info-name-box">
+                        <p class="tag-box public-txt red f-bar-bold f-12">#1234567890</p>
+                        <p class="public-txt f-15 f-bar-md">Sniper Badge</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                      <div class="item-box">
+                        <div class="info-name-box">
+                          <p class="tag-box public-txt red f-bar-bold f-12">#1234567890123456789012345678901234567890
+                          </p>
+                          <p class="public-txt f-15 f-bar-md">Sniper Badge</p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-center">
+                <button type="button" class="btn more-btn">
+                  <span class="txt">MORE</span>
+                  <i class="ico-arrow-down"></i>
+                </button>
+              </div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="go-top-wrap">
+    <button type="button" class="btn-gotop">
+      <i class="ico-go-top" aria-hidden="true"></i>
+      <a class="gotop"><span class="hide-txt">화면 제일위로 이동</span></a>
+    </button>
+  </div>
+
+
+  <!-- footer include-->
+  <footer id="footer" class="footer">
+    <div class="footer-inner">
+      <div CLASS="copyright">COPYRIGHT © 2024 NTROI INC. ALL RIGHT RESERVED</div>
+      <ul class="footer-list">
+        <li class="privacy">
+          <button type="button" class="popup-btn">PRIVACY POLICY</button>
+        </li>
+        <li class="terms">
+          <button type="button" class="popup-btn">TERMS OF USE</button>
+        </li>
+        <li class="social">
+          <ul class="depth2">
+            <li>
+              <a href="social-btn">
+                <i class="ico-discord" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="social-btn">
+                <i class="ico-mideum" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="social-btn">
+                <i class="ico-x" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="social-btn">
+                <i class="ico-email" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </footer>
+  <!-- //footer include-->
+  </div>
+  <div class="dimm"></div>
+  <script src="../assets/script/lib/swiper-bundle.min.js"></script>
+  <script src="../assets/script/lib/gsap.js"></script>
+  <script src="../assets/script/common.js"></script>
+  <script>
+    document.querySelectorAll(".tooltip-area").forEach((each) => {
+      const tooltip = setFn.tooltip(each)
+    })
+
+
+    const confirmDialog = setFn.dialog({
+      confirmText: 'OK',
+      cancelText: 'CANCEL',
+      classAdd: "caution",
+      confirm() {
+        confirmDialog.close()
+        dialog.close();
+      },
+      cancel() {
+        confirmDialog.close()
+      }
+    })
+    // APT : NOT ENOUGH 일떄
+    const dialog = setFn.dialog({
+      confirmText: 'OK',
+      // APT : NOT ENOUGH 일때
+      // confirmText: 'APT : NOT<br>ENOUGH',
+      // confirmDisabled: true,
+      cancelText: 'CANCEL',
+      confirm() {
+        const customHTML = `
+<div class="caution-wrap">
+  <div class="caution-head">0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</div>
+  <div class="caution-content">
+    <p class="txt">
+      Do you want to transfer NFT to the address?<br/>
+      Assets transferred externally will be fully owned by the wallet owner.<br/>
+      Please check the correct wallet address.
+        `
+        confirmDialog.open({
+          customHTML
+        })
+      },
+      cancel() {
+        dialog.close();
+      }
+    })
+
+    document.querySelectorAll('.dialog-open-btn').forEach((each) => {
+      const type = each.classList.contains('c4') ? 'c4' : 'ex'
+      let addressContentHTML, addressHeadHTML
+      if (type === 'c4') {
+        addressHeadHTML = `
+<span class="txt">C4 WALLET</span>
+<i class="ico-arrow-right"></i><br class="mo-show"/>
+<span class="txt">TRANSFER TO WALLET</span>
+`
+        addressContentHTML = `
+<div class="info-box">
+  <p class="info-title">INVENTORY ADDRESS</p>
+  <p class="info-desc">
+    <span class="txt">0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</span>
+  </p>
+  <button type="button" class="copy-btn"></button>
+</div>
+        `
+      } else if (type === 'ex') {
+        addressHeadHTML = `
+<span class="txt">C4 WALLET</span>
+<i class="ico-arrow-right"></i><br class="mo-show"/>
+<span class="txt">TRANSFER TO EXTERNAL WALLET</span>
+`
+        addressContentHTML = `
+<div class="info-box">
+  <p class="info-title">TRANSFER TARGET WALLET</p>
+  <p class="info-input">
+    <input type="text" class="input-txt" placeholder="Write to the transfer wallet." />
+  </p>
+  <button type="button" class="copy-btn"></button>
+</div>`
+      }
+      const customHTML = `
+<div class="inventory-transfer-wrap">
+  <div class="transfer-head">
+  ${addressHeadHTML}
+  </div>
+  <div class="transfer-cotnent">
+    <div class="item-box">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9nu7n0E08-6IWTwb9DV6B2sCAjrEBNUTlA&s" alt="">
+    </div>
+    <div class="item-info">
+      <div class="info-box">
+        <p class="info-title">C4 WALLET ADDRESS</p>
+        <p class="info-desc">
+          <span class="txt">0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</span>
+        </p>
+          <button type="button" class="copy-btn"></button>
+      </div>
+      <i class="ico-transfer-arrow"></i>
+    ${addressContentHTML}
+
+    </div>
+  </div>
+  <div class="transfer-foot">
+    <p class="txt">Do you agree to transfer this asset to the wallet?</p>
+    <!-- 없을때 error 클래스 value 에 추가 -->
+    <p class="txt small">Gas Fee: 0.0001 APT <span class="value">[ APT held: 0.05 APT ]</span> </p>
+  </div>
+</div>
+        `
+      each.addEventListener('click', () => {
+
+        dialog.open({
+          customHTML
+        })
+      })
+
+    })
+
+  </script>
+</body>
+
+</html>
