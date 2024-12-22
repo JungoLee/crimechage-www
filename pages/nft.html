@@ -60,13 +60,65 @@
             </li>
             <li class="one-depth">
               <a href="">
+                <span>STORE</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
                 <span>NFT DRAW</span>
               </a>
             </li>
             <li class="one-depth">
               <a href="">
-                <span>COMMUNITY</span>
+                <span>NFT MERGE</span>
               </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>PUZZLE</span>
+              </a>
+            </li>
+            <li class="one-depth relative">
+              <a href="" class="two-depth-btn">
+                <span>PLAY TEST</span>
+              </a>
+              <div class="play-test-box">
+                <a href="" class="play-test-btn">REWARD</a>
+                <a href="" class="play-test-btn">CREATOR</a>
+              </div>
+              <style>
+                .play-test-box {
+                  position: absolute;
+                  right: 50%;
+                  top: calc(100% + -2.5rem);
+                  transform: translateY(10px) translateX(50%);
+                  border-radius: 1rem;
+                  background-color: #000;
+                  padding: .5rem 2rem;
+                  /* display: none; */
+                  /* opacity: 0; */
+                }
+
+                .play-test-box .play-test-btn {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 4.6rem;
+                  padding: 1.3rem 0;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.25);
+                  font-family: "Barlow", sans-serif;
+                  font-weight: 500;
+                  font-style: normal;
+                  text-align: left;
+                }
+
+                .play-test-box .play-test-btn+.play-test-btn {
+                  border-top: 1px solid #444444;
+                }
+
+              </style>
             </li>
 
           </ul>
@@ -122,7 +174,7 @@
             <div class="visual-txt">
               <h2 class="title">
                 <span class="public-txt type02">NFT</span>
-                <span class="public-txt">DRAW</span>
+                <span class="public-txt ml-30">DRAW</span>
               </h2>
             </div>
             <!-- 라우트 이동할떄 setFn.visualText();  실행 필요 -->
@@ -144,6 +196,9 @@
           </h3>
           <p class="public-txt f-22 f-bar-md">Only 27 Legendary Partner & Weapon, Special badges exist!!!<br>This
             limited NFT won't be reissued and offers powerful in-game benefits.<br>Get your Legendary now!</p>
+          <div class="btn no-hover">
+            <span class="txt">My Ticket <i class="ico-ticket"></i> 3 </span>
+          </div>
           <div class="img-box">
             <img src="../assets/images/nft_img01.jpg" alt="">
             <div class="draw-box">
@@ -158,9 +213,50 @@
 
           </div>
           <button type="button" class="btn get-draw">
-            <span class="txt">Badge Draw (Ticket : 3)</span>
+            <span class="txt">
+              Draw
+              <i class="ico-ticket"></i> x 1
+            </span>
           </button>
 
+          <h3 class="public-txt f-40 public-title"><span class="white">IMPORTANT NOTICE </span></h3>
+          <p class="public-txt f-22 f-bar-md">You can use tickets to draw and obtain badge.<br>The badges you have
+            obtained can be viewed in My Asset.</p>
+
+          <div class="table-container width-50">
+            <p class="public-txt f-16 util-area f-bar-md">
+              - Draw Probabilities
+            </p>
+            <div class="table-scroll-wrapper">
+              <div class="table-head">
+                <div class="table-row">
+                  <div class="table-cell">Rarity</div>
+                  <div class="table-cell">Probability</div>
+
+                </div>
+
+              </div>
+              <div class="table-body">
+                <div class="table-row">
+                  <div class="table-cell">Common</div>
+                  <div class="table-cell">69.67%</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">Rare</div>
+                  <div class="table-cell">25.24%</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">Epic</div>
+                  <div class="table-cell">5.04%</div>
+                </div>
+                <div class="table-row">
+                  <div class="table-cell">Legendary</div>
+                  <div class="table-cell">0.05%</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
@@ -220,29 +316,50 @@
   <script src="../assets/script/lib/gsap.js"></script>
   <script src="../assets/script/common.js"></script>
   <script>
+    // class : legenday epic rare common
+    const customHTML = `
+      <div class="dialog-box">
+        <div class="dialog-head">
+          <h3 class="public-txt f-40 public-title">CONGRATULATIONS!</h3>
+        </div>
+        <div class="dialog-body">
+          <div class="img-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlvAFuVBkRtaJspZf6mhJjdYe3zw1fBGmCq_Eigx9hpgDISrNv6dgO6st_WVeIZjVptyU&usqp=CAU" alt="">
+          </div>
+          <p class="public-txt f-16 f-bar-md legendary">Legendary</p>
+          <p class="public-txt f-16 f-bar-md rare">Rare</p>
+          <p class="public-txt f-16 f-bar-md epic">Epic</p>
+          <p class="public-txt f-16 f-bar-md common">Common</p>
+          <p class="public-txt f-22 f-bar-md">Matilda #002</p>
+          <p class="public-txt f-14 f-bar-md">You can check the bedges you hava camed in My Asset</p>
+        </div>
+      </div>
+
+          `
+    const dialog = setFn.dialog({
+      cancelText: false,
+      confirmText: 'CONFIRM',
+      confirm() {
+        console.log("get")
+        draw.end()
+        dialog.close()
+      },
+      onClose() {
+        draw.end()
+        dialog.close()
+      }
+    });
     const draw = setFn.draw({
       onEnded() {
         // 비디오 끝날때
 
         dialog.open({
-          massage: "Unique Gauntlet",
-          img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlvAFuVBkRtaJspZf6mhJjdYe3zw1fBGmCq_Eigx9hpgDISrNv6dgO6st_WVeIZjVptyU&usqp=CAU"
+          customHTML
         });
 
       }
     })
-    const dialog = setFn.dialog({
-      cancelText: false,
-      confirmText: 'GET',
-      img: true,
-      confirm() {
-        console.log("get")
-        draw.end()
-      },
-      onClose() {
-        draw.end()
-      }
-    });
+
 
     document.querySelector('.get-draw').addEventListener('click', () => {
       const {
@@ -252,8 +369,7 @@
       // if (paused) {
       //   setTimeout(() => {
       //     dialog.open({
-      //       massage: "Rare Gun ",
-      //       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9nu7n0E08-6IWTwb9DV6B2sCAjrEBNUTlA&s"
+      //       customHTML
       //     });
       //   }, 3000)
       // }
