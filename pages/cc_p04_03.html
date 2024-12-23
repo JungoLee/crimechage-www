@@ -41,124 +41,67 @@
   </style>
   <!-- popup 영역 -->
   <style>
-    .transfer-cotnent.upset-flex {
-      display: block;
-      border-bottom: 0;
-      padding-bottom: 1rem;
+    .connect-wallet-wrapper~.dialog-footer {
+      display: none !important;
     }
 
-    .item-column {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 32.7rem;
+    .connect-wallet-wrapper {
+      min-width: 34rem;
+      ;
     }
 
-    .item-column .value {
-      font-size: 1.7rem;
-      line-height: 2rem;
-      color: #888888;
-    }
-
-    .item-column .data {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      flex: 1;
-      margin-left: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .account-apt {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #444;
-      margin-top: 2rem;
-      padding: 1rem 1.2rem;
-      border-radius: .5rem;
-
-    }
-
-    .account-apt .result {
+    .connect-wallet-wrapper .title {
+      font-size: 2rem;
+      line-height: 3rem;
       font-family: "Anton";
-      font-size: 3.5rem;
-      line-height: 3.5rem;
     }
 
-    .balance-txt {
-      margin-top: 1rem;
-      text-align: left;
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      color: #888;
-    }
-
-    .transfer-cotnent.upset-flex .ico-transfer-arrow {
-      margin-left: -6rem;
-      margin-right: -6rem;
-      width: calc(100% + 12rem);
-    }
-
-    .summary-box {
-      margin-top: 3rem;
-    }
-
-    .summary-box .title {
-      padding-bottom: 1rem;
+    .connect-wallet-wrapper .wallet-content {
+      margin: 0 auto;
+      margin-top: 4rem;
+      padding: 2rem 3rem;
+      border-top: 1px solid #444;
       border-bottom: 1px solid #444;
-      text-align: left;
+      width: auto;
+      display: inline-flex;
+    }
+
+    .connect-wallet-wrapper .wallet-content a {
+      display: flex;
+      align-items: center;
+    }
+
+    .connect-wallet-wrapper .text {
       font-size: 1.7rem;
       line-height: 2rem;
+      margin-left: 2rem;
     }
 
-    .summary-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
+    .connect-wallet-wrapper .text {
+      font-size: 1.7rem;
+      line-height: 2rem;
+      margin-left: 2rem;
     }
 
-    .summary-item .value {
+    .connect-wallet-wrapper .wallet-footer {
+      margin-top: 3rem;
       font-size: 1.5rem;
       line-height: 1.8rem;
     }
 
-    .summary-item .data {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      flex: 1;
-      margin-left: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: right;
+    .connect-wallet-wrapper .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 2.4rem;
+      height: 2.4rem;
     }
 
-    .summary-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #444;
-    }
 
     @media (max-width: 767px) {
-      .transfer-cotnent.upset-flex {
-        padding: 0 2rem;
-      }
-
-      .item-column {
-        max-width: 100%;
-      }
-
-      .transfer-cotnent.upset-flex .ico-transfer-arrow {
-        margin-left: -2rem;
-        margin-right: -2rem;
-        width: calc(100% + 4rem);
+      .connect-wallet-wrapper {
+        min-width: auto;
+        padding: 0 1rem;
       }
     }
 
@@ -485,7 +428,6 @@
                     </div>
                   </li>
                   <li class="list">
-                  <li class="list">
                     <div class="item-box">
                       <div class="info-name-box">
                         <p class="tag-box public-txt red f-bar-bold f-12">#1234567890123456789012345678901234567890
@@ -595,11 +537,8 @@
   <script src="../assets/script/common.js"></script>
   <script>
     const dialog = setFn.dialog({
-      confirmText: 'OK',
-      // APT : NOT ENOUGH 일때
-      // confirmText: 'APT : NOT<br>ENOUGH',
-      // confirmDisabled: true,
-      cancelText: 'CANCEL',
+      confirmText: false,
+      cancelText: false,
       confirm() {
 
       },
@@ -608,51 +547,24 @@
       }
     })
     const customHTML = `
-<div class="inventory-transfer-wrap">
-  <div class="transfer-head">
-    <span class="txt">TRANSPER APTOS COINS</span>
-  </div>
+  <div class="connect-wallet-wrapper">
+    <div class="title">CONNECT WALLET</div>
+    <div class="wallet-content">
+      <a href="">
+        <i class="ico-petra-apt" aria-hidden="true"></i>
+        <span class="text f-bar-bold">Petra Aptos Wallet</span>
+        <i class="ico-arrow-red" aria-hidden="true"></i>
+      </a>
 
-  <div class="transfer-cotnent upset-flex">
-    <div class="item-column">
-      <span class="value">KEYLESS WALLET</span>
-      <span class="data">0x881abckdosdjslfae1a9...</span>
     </div>
-    <div class="account-apt">
-      <i class="ico-apt-logo" aria-hidden="true"></i>
-      <p class="result">33,333.947</p>
+    <div class="wallet-footer f-bar-md">
+      By connecting your wallet and using Crime & Chase,<br class="pc-show">
+      you agree to our Terms of service and Privacy Policy.
     </div>
-    <p class="balance-txt">Balance 145,4842432</p>
-    <i class="ico-transfer-arrow horizontal-line" aria-hidden="true"></i>
-    <div class="item-column">
-      <span class="value">EXTERNAL WALLET</span>
-      <span class="data">0x881abckdosdjslfae1a9...</span>
-    </div>
-    <div class="summary-box">
-      <p class="title">SUMMARY</p>
-      <div class="summary-item">
-        <span class="value">Recipient</span>
-        <span class="data">0x881abckdosdjslfae1 ...</span>
-      </div>
-      <div class="summary-item">
-        <span class="value">Amount</span>
-        <span class="data">33,333.947 APT</span>
-      </div>
-      <div class="summary-item">
-        <span class="value">Fee</span>
-        <span class="data">0.00004 APT</span>
-      </div>
-      <div class="summary-item">
-        <span class="value">Network</span>
-        <span class="data">Mainnet</span>
-      </div>
-      <div class="summary-footer">
-        <span class="value">TOTAL</span>
-        <span class="data">33,333.94704 APT</span>
-      </div>
-    </div>
+    <button type="button" class="close-btn" onClick="dialog.close()">
+      <i class="ico-close"></i>
+    </button>
   </div>
-</div>
         `
 
     dialog.open({

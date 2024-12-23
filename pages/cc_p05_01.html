@@ -16,8 +16,11 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
   <link href="../assets/styles/style.css" type="text/css" rel="stylesheet" />
   <link href="../assets/styles/style2.css" type="text/css" rel="stylesheet" />
-  <!-- content 영역 -->
   <style>
+    .myasset-container-page {
+      position: relative;
+    }
+
     .ico-arrow-red {
       margin-left: 1rem;
       vertical-align: .1rem;
@@ -32,134 +35,31 @@
       text-align: center;
     }
 
+    .insufficient-apt-btn-box {
+      position: absolute;
+      bottom: 12rem;
+      right: 0;
+      color: #ff0109;
+      font-size: 1.8rem;
+      line-height: 2.7rem;
+      padding: 1rem 2rem;
+      border-radius: 5rem 0 0 5rem;
+      border: 1px solid #ff0109;
+      border-right: 0;
+      font-family: "Anton";
+    }
+
     @media (max-width: 767px) {
+      .more-btn {}
+
+      .insufficient-apt-btn-box {
+        bottom: 8rem;
+      }
+
       .myasset-container-page .inventory-detail {
         margin-bottom: 0;
       }
-    }
 
-  </style>
-  <!-- popup 영역 -->
-  <style>
-    .transfer-cotnent.upset-flex {
-      display: block;
-      border-bottom: 0;
-      padding-bottom: 1rem;
-    }
-
-    .item-column {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 32.7rem;
-    }
-
-    .item-column .value {
-      font-size: 1.7rem;
-      line-height: 2rem;
-      color: #888888;
-    }
-
-    .item-column .data {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      flex: 1;
-      margin-left: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .account-apt {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #444;
-      margin-top: 2rem;
-      padding: 1rem 1.2rem;
-      border-radius: .5rem;
-
-    }
-
-    .account-apt .result {
-      font-family: "Anton";
-      font-size: 3.5rem;
-      line-height: 3.5rem;
-    }
-
-    .balance-txt {
-      margin-top: 1rem;
-      text-align: left;
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      color: #888;
-    }
-
-    .transfer-cotnent.upset-flex .ico-transfer-arrow {
-      margin-left: -6rem;
-      margin-right: -6rem;
-      width: calc(100% + 12rem);
-    }
-
-    .summary-box {
-      margin-top: 3rem;
-    }
-
-    .summary-box .title {
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #444;
-      text-align: left;
-      font-size: 1.7rem;
-      line-height: 2rem;
-    }
-
-    .summary-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
-    }
-
-    .summary-item .value {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-    }
-
-    .summary-item .data {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      flex: 1;
-      margin-left: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .summary-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #444;
-    }
-
-    @media (max-width: 767px) {
-      .transfer-cotnent.upset-flex {
-        padding: 0 2rem;
-      }
-
-      .item-column {
-        max-width: 100%;
-      }
-
-      .transfer-cotnent.upset-flex .ico-transfer-arrow {
-        margin-left: -2rem;
-        margin-right: -2rem;
-        width: calc(100% + 4rem);
-      }
     }
 
   </style>
@@ -485,7 +385,6 @@
                     </div>
                   </li>
                   <li class="list">
-                  <li class="list">
                     <div class="item-box">
                       <div class="info-name-box">
                         <p class="tag-box public-txt red f-bar-bold f-12">#1234567890123456789012345678901234567890
@@ -532,7 +431,9 @@
 
             </div>
           </div>
-
+          <div class="insufficient-apt-btn-box">
+            <a href="" class="balance-btn">Insufficient APT Balance</a>
+          </div>
         </div>
 
       </div>
@@ -594,11 +495,12 @@
   <script src="../assets/script/lib/gsap.js"></script>
   <script src="../assets/script/common.js"></script>
   <script>
+    document.querySelectorAll(".tooltip-area").forEach((each) => {
+      const tooltip = setFn.tooltip(each)
+    })
+
     const dialog = setFn.dialog({
       confirmText: 'OK',
-      // APT : NOT ENOUGH 일때
-      // confirmText: 'APT : NOT<br>ENOUGH',
-      // confirmDisabled: true,
       cancelText: 'CANCEL',
       confirm() {
 
@@ -607,54 +509,62 @@
         dialog.close();
       }
     })
+
     const customHTML = `
 <div class="inventory-transfer-wrap">
   <div class="transfer-head">
-    <span class="txt">TRANSPER APTOS COINS</span>
+    <span class="txt">KEYLESS</span>
+    <i class="ico-arrow-right"></i><br class="mo-show"/>
+    <span class="txt">TRANSFER TO EXTERNAL WALLET</span>
   </div>
-
-  <div class="transfer-cotnent upset-flex">
-    <div class="item-column">
-      <span class="value">KEYLESS WALLET</span>
-      <span class="data">0x881abckdosdjslfae1a9...</span>
+  <div class="transfer-cotnent">
+    <div class="item-box">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9nu7n0E08-6IWTwb9DV6B2sCAjrEBNUTlA&s" alt="">
+      <div class="tooltip-area">
+        <button type="button" class="tooltip-btn type02">
+          <i class="ico-tooltip" aria-hidden="true"></i>
+        </button>
+        <div class="tooltip-detail">
+          <ul class="tooltip-lists">
+            <li class="tooltip-list">
+              <button class="dialog-open-btn c4" type="button">Keyless Transfer</button>
+            </li>
+            <li class="tooltip-list">
+              <button class="dialog-open-btn ex" type="button">External Wallet Transfer</button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="account-apt">
-      <i class="ico-apt-logo" aria-hidden="true"></i>
-      <p class="result">33,333.947</p>
+    <div class="item-info">
+      <div class="info-box">
+        <p class="info-title">INVENTORY ADDRESS</p>
+        <p class="info-desc">
+          <span
+            class="txt">0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</span>
+        </p>
+        <button type="button" class="copy-btn"></button>
+      </div>
+      <i class="ico-transfer-arrow"></i>
+      <div class="info-box">
+        <p class="info-title">INVENTORY TARGET ADDRESS</p>
+        <p class="info-desc">
+          <span
+            class="txt">0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</span>
+        </p>
+        <button type="button" class="copy-btn"></button>
+      </div>
     </div>
-    <p class="balance-txt">Balance 145,4842432</p>
-    <i class="ico-transfer-arrow horizontal-line" aria-hidden="true"></i>
-    <div class="item-column">
-      <span class="value">EXTERNAL WALLET</span>
-      <span class="data">0x881abckdosdjslfae1a9...</span>
     </div>
-    <div class="summary-box">
-      <p class="title">SUMMARY</p>
-      <div class="summary-item">
-        <span class="value">Recipient</span>
-        <span class="data">0x881abckdosdjslfae1 ...</span>
-      </div>
-      <div class="summary-item">
-        <span class="value">Amount</span>
-        <span class="data">33,333.947 APT</span>
-      </div>
-      <div class="summary-item">
-        <span class="value">Fee</span>
-        <span class="data">0.00004 APT</span>
-      </div>
-      <div class="summary-item">
-        <span class="value">Network</span>
-        <span class="data">Mainnet</span>
-      </div>
-      <div class="summary-footer">
-        <span class="value">TOTAL</span>
-        <span class="data">33,333.94704 APT</span>
-      </div>
+    <div class="transfer-foot">
+      <p class="txt">Do you agree to transfer this asset to the wallet?</p>
+      <p class="txt small">[ Free Transfer Ticket(s) : 1 ]</p>
     </div>
   </div>
-</div>
-        `
-
+  `
+    setTimeout(() => {
+      setFn.tooltip(document.querySelector('.inventory-transfer-wrap .tooltip-area'))
+    }, 1000)
     dialog.open({
       customHTML
     })

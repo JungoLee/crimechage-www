@@ -16,7 +16,6 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
   <link href="../assets/styles/style.css" type="text/css" rel="stylesheet" />
   <link href="../assets/styles/style2.css" type="text/css" rel="stylesheet" />
-  <!-- content 영역 -->
   <style>
     .ico-arrow-red {
       margin-left: 1rem;
@@ -33,133 +32,12 @@
     }
 
     @media (max-width: 767px) {
+      .more-btn {}
+
       .myasset-container-page .inventory-detail {
         margin-bottom: 0;
       }
-    }
 
-  </style>
-  <!-- popup 영역 -->
-  <style>
-    .transfer-cotnent.upset-flex {
-      display: block;
-      border-bottom: 0;
-      padding-bottom: 1rem;
-    }
-
-    .item-column {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 32.7rem;
-    }
-
-    .item-column .value {
-      font-size: 1.7rem;
-      line-height: 2rem;
-      color: #888888;
-    }
-
-    .item-column .data {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      flex: 1;
-      margin-left: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .account-apt {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #444;
-      margin-top: 2rem;
-      padding: 1rem 1.2rem;
-      border-radius: .5rem;
-
-    }
-
-    .account-apt .result {
-      font-family: "Anton";
-      font-size: 3.5rem;
-      line-height: 3.5rem;
-    }
-
-    .balance-txt {
-      margin-top: 1rem;
-      text-align: left;
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      color: #888;
-    }
-
-    .transfer-cotnent.upset-flex .ico-transfer-arrow {
-      margin-left: -6rem;
-      margin-right: -6rem;
-      width: calc(100% + 12rem);
-    }
-
-    .summary-box {
-      margin-top: 3rem;
-    }
-
-    .summary-box .title {
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #444;
-      text-align: left;
-      font-size: 1.7rem;
-      line-height: 2rem;
-    }
-
-    .summary-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
-    }
-
-    .summary-item .value {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-    }
-
-    .summary-item .data {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      flex: 1;
-      margin-left: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .summary-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #444;
-    }
-
-    @media (max-width: 767px) {
-      .transfer-cotnent.upset-flex {
-        padding: 0 2rem;
-      }
-
-      .item-column {
-        max-width: 100%;
-      }
-
-      .transfer-cotnent.upset-flex .ico-transfer-arrow {
-        margin-left: -2rem;
-        margin-right: -2rem;
-        width: calc(100% + 4rem);
-      }
     }
 
   </style>
@@ -485,7 +363,6 @@
                     </div>
                   </li>
                   <li class="list">
-                  <li class="list">
                     <div class="item-box">
                       <div class="info-name-box">
                         <p class="tag-box public-txt red f-bar-bold f-12">#1234567890123456789012345678901234567890
@@ -493,7 +370,6 @@
                         <p class="public-txt f-15 f-bar-md">Sniper Badge</p>
                       </div>
                     </div>
-                  </li>
                   </li>
                   <li class="list">
                     <div class="item-box">
@@ -594,69 +470,37 @@
   <script src="../assets/script/lib/gsap.js"></script>
   <script src="../assets/script/common.js"></script>
   <script>
-    const dialog = setFn.dialog({
-      confirmText: 'OK',
-      // APT : NOT ENOUGH 일때
-      // confirmText: 'APT : NOT<br>ENOUGH',
-      // confirmDisabled: true,
-      cancelText: 'CANCEL',
-      confirm() {
+    document.querySelectorAll(".tooltip-area").forEach((each) => {
+      const tooltip = setFn.tooltip(each)
+    })
 
+
+
+    const confirmDialog4 = setFn.dialog({
+      confirmText: 'OK',
+      cancelText: false,
+      classAdd: "caution",
+      confirm() {
+        confirmDialog4.close()
+        dialog.close();
       },
       cancel() {
-        dialog.close();
+        confirmDialog4.close()
       }
     })
-    const customHTML = `
-<div class="inventory-transfer-wrap">
-  <div class="transfer-head">
-    <span class="txt">TRANSPER APTOS COINS</span>
-  </div>
-
-  <div class="transfer-cotnent upset-flex">
-    <div class="item-column">
-      <span class="value">KEYLESS WALLET</span>
-      <span class="data">0x881abckdosdjslfae1a9...</span>
-    </div>
-    <div class="account-apt">
-      <i class="ico-apt-logo" aria-hidden="true"></i>
-      <p class="result">33,333.947</p>
-    </div>
-    <p class="balance-txt">Balance 145,4842432</p>
-    <i class="ico-transfer-arrow horizontal-line" aria-hidden="true"></i>
-    <div class="item-column">
-      <span class="value">EXTERNAL WALLET</span>
-      <span class="data">0x881abckdosdjslfae1a9...</span>
-    </div>
-    <div class="summary-box">
-      <p class="title">SUMMARY</p>
-      <div class="summary-item">
-        <span class="value">Recipient</span>
-        <span class="data">0x881abckdosdjslfae1 ...</span>
-      </div>
-      <div class="summary-item">
-        <span class="value">Amount</span>
-        <span class="data">33,333.947 APT</span>
-      </div>
-      <div class="summary-item">
-        <span class="value">Fee</span>
-        <span class="data">0.00004 APT</span>
-      </div>
-      <div class="summary-item">
-        <span class="value">Network</span>
-        <span class="data">Mainnet</span>
-      </div>
-      <div class="summary-footer">
-        <span class="value">TOTAL</span>
-        <span class="data">33,333.94704 APT</span>
-      </div>
-    </div>
+    const customHTML4 = `
+<div class="caution-wrap">
+  <div class="caution-content">
+    <p class="txt">
+      The asset is currently in use within the Crime & Chase.<br class="pc-show">
+      To transfer it to another wallet,<br class="pc-show">
+      please switch it to an inavtive state in the Crime & Chase.
+    </p>
   </div>
 </div>
         `
-
-    dialog.open({
-      customHTML
+    confirmDialog4.open({
+      customHTML: customHTML4
     })
 
   </script>

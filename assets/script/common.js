@@ -149,7 +149,7 @@ const setFn = {
               `
           }
         </div>
-        <div class="dialog-footer">
+        <div class="dialog-footer" style="${!opt.cancelText && !opt.confirmText ? "display:none;" : ""}">
           ${
             opt.cancelText
               ? `<button type="button" class="btn grey cancel">
