@@ -113,6 +113,21 @@ const setFn = {
       },
     });
   },
+  mainFn2() {
+    gsap.to(".main-visual-wrapper .motion-box, .main-visual-wrapper img", 0.8, {
+      delay: 0.8,
+      y: 0,
+      ease: "power4.out",
+      stagger: 0.1,
+      onComplete() {
+        gsap.to(".main-visual-wrapper .btn-area", 0.4, {
+          y: 0,
+          alpha: 1,
+          ease: "power4.out",
+        });
+      },
+    });
+  },
   dialog(options) {
     const opt = {
       confirm: () => {},
@@ -680,7 +695,7 @@ const setFn = {
 document.addEventListener("DOMContentLoaded", function () {
   setFn.onYouTubeIframeAPIReady();
   if (document.querySelector(".main-container-page")) {
-    setFn.mainFn();
+    // setFn.mainFn();
   }
   if (document.querySelector(".header")) {
     setFn.header();

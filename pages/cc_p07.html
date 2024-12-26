@@ -15,7 +15,58 @@
   <meta property="og:description" content="" />
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
   <link href="../assets/styles/style.css" type="text/css" rel="stylesheet" />
+  <link href="../assets/styles/style2.css" type="text/css" rel="stylesheet" />
+  <style>
+    .app-down-box {
+      display: flex;
+      margin-left: 18.6rem;
+    }
 
+    .main-visual-wrapper .content-area .app-down-box .app-img {
+      border-radius: 0;
+      width: 20.4rem;
+      height: 6rem;
+    }
+
+    .main-visual-wrapper .content-area .app-down-box .app-img+.app-img {
+      margin-left: 1rem;
+      flex: 1;
+    }
+
+    .btn-area {
+      display: flex;
+    }
+
+    .main-container-page {
+      min-height: calc(100vh - 7rem);
+    }
+
+    @media (max-width: 767px) {
+      .main-container-page {
+        min-height: calc(100vh - 17.3rem);
+      }
+
+      .btn-area {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .app-down-box {
+        display: flex;
+        margin-left: 0;
+        margin-top: 2rem;
+      }
+
+      .main-visual-wrapper .content-area .app-down-box .app-img {
+        border-radius: 0;
+        width: 13.2rem;
+        height: auto;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
@@ -176,124 +227,135 @@
 
     <div id="container">
       <div id="content">
-        <div class="container-visual-area">
-          <div class="visual-area">
-            <div class="visual-img-box">
-              <img src="../assets/images/visual_bg_img02.jpg" alt="">
+        <div class="main-container-page">
+
+          <div class="main-visual-wrapper">
+            <div class="video-area">
+              <div class="youtube-frame" id="youtube-frame"></div>
+              <div class="cover" aria-hidden="true"></div>
             </div>
-            <div class="visual-txt">
-              <h2 class="title">
-                <span class="public-txt type02">COM</span>
-                <span class="public-txt">MUNITY</span>
-              </h2>
+            <div class="content-area">
+              <span class="public-txt"><span class="motion-box">CRIME &</span></span>
+              <br>
+              <span class="motion-box-wrap"><img class="chip-img" src="../assets/images/logo_chip.png" alt=""></span>
+              <br class="mo-show">
+              <span class="public-txt type02">
+                <div class="motion-box">CHASE</div>
+              </span>
+              <p class="public-txt red f-52">
+                <span class="motion-box">Your Ultimate 4X Game Destination</span>
+              </p>
+              <p class="public-txt f-24 f-bar-md">
+                <span class="motion-box">Welcome to Crime&Chase, where excitement and strategy meet!</span>
+              </p>
+              <p class="public-txt f-24 f-bar-md pc-show">
+                <span class="motion-box">Experience the thrill of 4X gaming with our immersive and engaging
+                  platform.</span>
+              </p>
+              <p class="public-txt f-24 f-bar-md pc-show">
+                <span class="motion-box">A crime boss who has lost his memory. And, a new life beginning again!</span>
+              </p>
+              <div class="btn-area">
+                <a href="" class="btn">
+                  <span class="txt">OFFICIAL TRAILER</span>
+                  <i class="ico-arrow-btn"></i>
+                </a>
+                <div class="app-down-box">
+                  <a href="" class="app-down"><img class="app-img" src="../assets/images/googleplay_store.png" alt=""></a>
+                  <a href="" class="app-down"><img class="app-img" src="../assets/images/appstore_store.png" alt=""></a>
+                </div>
+              </div>
             </div>
-            <!-- 라우트 이동할떄 setFn.visualText();  실행 필요 -->
-          </div>
-          <div class="breadcrunb-area">
-            <ul class="breadcrunb-list">
-              <li class="breadcrunb-item">
-                <a href="" class="breadcrunb-link f-bar-bold">HOME</a>
-              </li>
-              <li class="breadcrunb-item">
-                <a href="" class="breadcrunb-link f-bar-bold">COMMUNITY</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="community-container-page">
-          <h3 class="public-txt f-40 public-title"><span class="white">COMMUNITY </span>AND <span class="white">CUSTOMER
-              SUPPORT CENTER</span> </h3>
-          <div class="community-wrapper">
-            <div class="community-lists">
-              <a href="" class="community-btn">
-                <i class="ico-twitter-commnuity" aria-hidden></i>
-                <span class="public-txt f-35">TWITTER</span>
-              </a>
-              <a href="" class="community-btn">
-                <i class="ico-facebook-commnuity" aria-hidden></i>
-                <span class="public-txt f-35">FACEBOOK</span>
-              </a>
-              <a href="" class="community-btn">
-                <i class="ico-instagram-commnuity" aria-hidden></i>
-                <span class="public-txt f-35">INSTAGRAM</span>
-              </a>
-              <a href="" class="community-btn">
-                <i class="ico-youtube-commnuity" aria-hidden></i>
-                <span class="public-txt f-35">YOUTUBE</span>
-              </a>
-              <a href="" class="community-btn">
-                <i class="ico-discord-commnuity" aria-hidden></i>
-                <span class="public-txt f-35">DISCORD</span>
-              </a>
-              <a href="" class="community-btn">
-                <i class="ico-medium-commnuity" aria-hidden></i>
-                <span class="public-txt f-35">MEDIUM</span>
-              </a>
-            </div>
-            <div class="img-box" aria-hidden="true"></div>
           </div>
 
         </div>
 
       </div>
-
-    </div>
-  </div>
-
-  <div class="go-top-wrap">
-    <button type="button" class="btn-gotop">
-      <i class="ico-go-top" aria-hidden="true"></i>
-      <a class="gotop"><span class="hide-txt">화면 제일위로 이동</span></a>
-    </button>
-  </div>
-
-
-  <!-- footer include-->
-  <footer id="footer" class="footer">
-    <div class="footer-inner">
-      <div CLASS="copyright">COPYRIGHT © 2024 NTROI INC. ALL RIGHT RESERVED</div>
-      <ul class="footer-list">
-        <li class="privacy">
-          <button type="button" class="popup-btn">PRIVACY POLICY</button>
-        </li>
-        <li class="terms">
-          <button type="button" class="popup-btn">TERMS OF USE</button>
-        </li>
-        <li class="social">
-          <ul class="depth2">
-            <li>
-              <a href="social-btn">
-                <i class="ico-discord" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li>
-              <a href="social-btn">
-                <i class="ico-mideum" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li>
-              <a href="social-btn">
-                <i class="ico-x" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li>
-              <a href="social-btn">
-                <i class="ico-email" aria-hidden="true"></i>
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
     </div>
 
-  </footer>
-  <!-- //footer include-->
+    <div class="go-top-wrap">
+      <button type="button" class="btn-gotop">
+        <i class="ico-go-top" aria-hidden="true"></i>
+        <a class="gotop"><span class="hide-txt">화면 제일위로 이동</span></a>
+      </button>
+    </div>
+
+
+    <!-- footer include-->
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div CLASS="copyright">COPYRIGHT © 2024 NTROI INC. ALL RIGHT RESERVED</div>
+        <ul class="footer-list">
+          <li class="privacy">
+            <button type="button" class="popup-btn">PRIVACY POLICY</button>
+          </li>
+          <li class="terms">
+            <button type="button" class="popup-btn">TERMS OF USE</button>
+          </li>
+          <li class="social">
+            <ul class="depth2">
+              <li>
+                <a href="social-btn">
+                  <i class="ico-discord" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="social-btn">
+                  <i class="ico-mideum" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="social-btn">
+                  <i class="ico-x" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="social-btn">
+                  <i class="ico-email" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </footer>
+    <!-- //footer include-->
   </div>
   <div class="dimm"></div>
   <script src="../assets/script/lib/swiper-bundle.min.js"></script>
   <script src="../assets/script/lib/gsap.js"></script>
   <script src="../assets/script/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setFn.mainFn2();
+    })
+    const confirmDialog2 = setFn.dialog({
+      confirmText: 'CONFIRM',
+      cancelText: 'CANCEL',
+      classAdd: "caution",
+      confirm() {
+        confirmDialog2.close()
+        dialog.close();
+      },
+      cancel() {
+        confirmDialog2.close()
+      }
+    })
+    const customHTML2 = `
+<div class="caution-wrap">
+  <div class="caution-content">
+    <p class="txt">
+      Would you like to disconnect your wallet?
+    </p>
+  </div>
+</div>
+        `
+    confirmDialog2.open({
+      customHTML: customHTML2
+    })
 
+  </script>
 </body>
 
 </html>
