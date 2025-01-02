@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta charset="utf-8" />
+  <title>Crime & Chase</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:description" content="" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link href="../assets/styles/style.css" type="text/css" rel="stylesheet" />
+  <link href="../assets/styles/style2.css" type="text/css" rel="stylesheet" />
+  <style>
+    .store-container-page {
+      padding-bottom: 16rem;
+    }
+
+    .store-container-page .tab-container {
+      padding-top: 10rem;
+    }
+
+    .store-container-page .tab-container .tab-btn {
+      height: 4.8rem;
+    }
+
+    .store-container-page .tab-container .tab-head {
+      width: 41rem;
+      margin: 0 auto;
+    }
+
+    .store-container-page .tab-container .tab-content {
+      border-top: 1px solid #444;
+
+      padding-top: 4rem;
+      width: 124rem;
+      margin: 0 auto;
+      max-width: 100%;
+      margin-top: 4rem;
+    }
+
+    .store-container-page .tab-container .tab-head .txt {
+      font-size: 1.8rem;
+    }
+
+    .store-lists-container .lists {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .store-lists-container .list {
+      width: calc(25% - 3rem);
+      margin-left: 4rem;
+    }
+
+    .store-lists-container .list:nth-child(4n + 1) {
+      margin-left: 0;
+    }
+
+    .store-lists-container .list:nth-child(1n + 5) {
+      margin-top: 4rem;
+    }
+
+    .store-lists-container .lists .item-box {
+      display: block;
+    }
+
+    .store-lists-container .lists span {
+      display: block;
+    }
+
+    .store-lists-container .lists .thumbnail-box {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      font-size: 0;
+    }
+
+    .store-lists-container .lists .item-box.has-badge-top .thumbnail-box {
+      border-top-left-radius: 0;
+    }
+
+    .store-lists-container .lists .item-box.has-badge-bottom .thumbnail-box {
+      border-bottom-right-radius: 0;
+    }
+
+    .store-lists-container .lists .thumbnail-box {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      font-size: 0;
+    }
+
+    .store-lists-container .lists .img-box {
+      position: relative;
+      background-color: #444;
+    }
+
+    .store-lists-container .lists .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      border-radius: 1rem;
+      background-color: #444;
+    }
+
+    .store-lists-container .lists .img-box::after {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    .store-lists-container .lists .badge-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 2.5rem;
+      background-color: #ffee72;
+      transform: rotate(-30deg);
+      width: 18rem;
+      padding: 3rem 0 .5rem 3rem;
+      margin-top: -3.7rem;
+      margin-left: -2.9rem;
+    }
+
+    .store-lists-container .lists .badge-top.hot {
+      background-color: #FF6767;
+    }
+
+    .store-lists-container .lists .badge-bottom {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 2.2rem;
+      background-color: #83a0ff;
+      transform: rotate(-30deg);
+      width: 22rem;
+      padding: .8rem 0rem 3rem 10rem;
+      margin-bottom: -4.7rem;
+      margin-right: -3.9rem;
+      text-align: center;
+    }
+
+    .store-lists-container .lists .badge-bottom .txt {
+      font-size: 1.5rem;
+    }
+
+    .store-lists-container .lists .badge-bottom .txt.big {
+      font-size: 2.2rem;
+    }
+
+    .store-lists-container .lists .sold-out-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 5rem;
+      line-height: 5rem;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2;
+    }
+
+    .store-lists-container .lists .item-price {
+      font-size: 2.6rem;
+      line-height: 2.8rem;
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      min-height: 5rem;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .store-lists-container .lists .item-price-sub .discount-sub {
+      font-size: 1.7rem;
+      line-height: 2rem;
+      margin-left: .2rem;
+      display: inline-block;
+      text-decoration: line-through;
+    }
+
+    .store-lists-container .lists .item-price .price {
+      flex: 1 0 auto;
+      word-break: break-all;
+      max-width: calc(100% - 7rem);
+    }
+
+    .store-lists-container .lists .item-price .gem-block {
+      display: inline-block;
+    }
+
+    .store-lists-container .lists .item-price .price:only-child {
+      max-width: 100%;
+    }
+
+    .store-lists-container .lists .item-price .discount {
+      flex: 0 0 auto;
+      color: #ff0109;
+      text-align: right;
+    }
+
+    .store-lists-container .lists .item-price-sub {
+      font-size: 2rem;
+      line-height: 2.4rem;
+      margin-top: .5rem;
+      color: #fff;
+    }
+
+    .store-lists-container .lists .item-price-apt {
+      font-size: 1.7rem;
+      line-height: 2rem;
+      margin-top: .2rem;
+      color: #888;
+    }
+
+    .store-lists-container .lists .item-remain {
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      margin-top: .4rem;
+      color: #ff7e00;
+    }
+
+    .store-lists-container .lists .item-remain .txt {
+      display: inline-block;
+      color: #fff;
+    }
+
+    .store-lists-container .lists .item-remain.unlimited {
+      color: #ff0109
+    }
+
+    .btn-center {
+      text-align: center;
+      margin-top: 6rem;
+    }
+
+    .public-txt.f-bar-md.f-20 {
+      margin: 0 auto;
+      margin-top: 2rem;
+      text-align: center;
+      display: block;
+    }
+
+    .mailto {
+      color: #ff7e00;
+    }
+
+    @media (max-width: 767px) {
+      .store-container-page {
+        padding-bottom: 12rem;
+      }
+
+      .store-container-page .tab-container {
+        padding-top: 6rem;
+      }
+
+      .store-container-page .tab-container .tab-head {
+        width: calc(100% - 5rem);
+        margin: 0 auto;
+      }
+
+      .store-container-page .tab-container .tab-content {
+        padding-top: 3rem;
+        margin: 0 auto;
+        width: calc(100% - 3rem);
+        margin-top: 3rem;
+      }
+
+      .store-lists-container .list {
+        width: calc(50% - .75rem);
+        margin-left: 1.5rem;
+      }
+
+      .store-lists-container .list:nth-child(2n + 1) {
+        margin-left: 0;
+      }
+
+      .store-lists-container .list:nth-child(1n + 3) {
+        margin-top: 4rem;
+      }
+
+      .store-lists-container .lists .item-price {
+        font-size: 2rem;
+        line-height: 2.2rem;
+        margin-top: 1.2rem;
+        min-height: 4rem;
+      }
+
+      .store-lists-container .lists .badge-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 2.2rem;
+        background-color: #ffee72;
+        transform: rotate(-30deg);
+        width: 18rem;
+        padding: 3rem 0 .5rem 3rem;
+        margin-top: -3.7rem;
+        margin-left: -2.9rem;
+      }
+
+      .store-lists-container .lists .badge-bottom .txt {
+        font-size: 1.3rem;
+      }
+
+      .store-lists-container .lists .badge-bottom .txt.big {
+        font-size: 2rem;
+      }
+
+      .store-lists-container .lists .item-price-sub {
+        font-size: 1.6rem;
+        line-height: 1.5rem;
+        margin-top: .8rem;
+      }
+
+      .store-lists-container .lists .item-price-sub .discount-sub {
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+        margin-left: 0;
+        display: block;
+      }
+
+      .store-lists-container .lists .item-price-apt {
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+      }
+
+      .store-lists-container .lists .item-remain {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <!-- header include-->
+    <header id="header" class="header f-bar-bold">
+      <div class="header-inner">
+        <div class="header-util">
+          <button type="button" class="btn-allmenu mo-show">
+            <i class="ico-allmenu" aria-hidden="true"></i>
+            <span class="hide-txt">전체메뉴</span>
+          </button>
+          <h1>
+            <a href="" class="logo">
+              <img src="../assets/images/logo.png" alt="">
+              <span class="hide-txt">CRIME & CHASE conlict city</span>
+            </a>
+          </h1>
+          <!-- 로그인 버튼 -->
+
+
+          <div class="login-info-wrapper mo-show">
+            <button type="button" class="login-info mo-show">
+              <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+              <span class="hide-txt">로그아웃 하기</span>
+            </button>
+            <div class="logout-btn-box">
+              <a href="" class="logout-btn">Logout</a>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="header-nav">
+
+          <ul class="gnb-area left">
+            <li class="one-depth home">
+              <a href="" class="">
+                <img src="../assets/images/logo.png" class="mo-show logo" alt="">
+                <span class="pc-show">HOME</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>STORE</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>NFT DRAW</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>NFT MERGE</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>PUZZLE</span>
+              </a>
+            </li>
+            <li class="one-depth relative">
+              <a href="" class="two-depth-btn">
+                <span>PLAY TEST</span>
+              </a>
+              <div class="play-test-box">
+                <a href="" class="play-test-btn">REWARD</a>
+                <a href="" class="play-test-btn">CREATOR</a>
+              </div>
+              <style>
+                .play-test-box {
+                  position: absolute;
+                  right: 50%;
+                  top: calc(100% + -2.5rem);
+                  transform: translateY(10px) translateX(50%);
+                  border-radius: 1rem;
+                  background-color: #000;
+                  padding: .5rem 2rem;
+                  /* display: none; */
+                  /* opacity: 0; */
+                }
+
+                .play-test-box .play-test-btn {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 4.6rem;
+                  padding: 1.3rem 0;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.25);
+                  font-family: "Barlow", sans-serif;
+                  font-weight: 500;
+                  font-style: normal;
+                  text-align: left;
+                }
+
+                .play-test-box .play-test-btn+.play-test-btn {
+                  border-top: 1px solid #444444;
+                }
+
+              </style>
+            </li>
+
+          </ul>
+          <ul class="gnb-area">
+            <li class="one-depth">
+              <a href="">
+                <span>MY ASSET</span>
+              </a>
+            </li>
+            <li class="one-depth mo-show">
+              <a href="">
+                <span>LOG IN</span>
+              </a>
+            </li>
+
+
+            <li class="one-depth pc-show">
+              <div class="login-info-wrapper">
+                <button type="button" class="login-info mo-show">
+                  <span class="id f-bar-md">hello01@gmail.com</span>
+                  <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+                  <span class="hide-txt">로그아웃 하기</span>
+                </button>
+                <div class="logout-btn-box">
+                  <a href="" class="logout-btn">MY INFO</a>
+                  <a href="" class="logout-btn">CONNECT<br />EXTERNAL WALLET</a>
+                  <div class="logout-btn flex">
+                    <button class="copy-btn">
+                      <i class="ico-petra-apt small" aria-hidden="true"></i>
+                      <span class="txt f-bar-md">0x813as2d132ayh132ew1df2314t32w145tg2z1fds32v1awe3213fg</span>
+                      <i class="ico-copy" aria-hidden="true"></i>
+                    </button>
+                    <a href="" class="underline">DISCONNECT</a>
+                  </div>
+                  <a href="" class="logout-btn">LOGOUT</a>
+                </div>
+              </div>
+            </li>
+
+
+          </ul>
+
+          <button type="button" class="close-btn">
+            <i class="ico-close" aria-hidden="true"></i>
+            <span class="hide-txt">close</span>
+          </button>
+        </div>
+      </div>
+      <div class="dimmed mo-show"></div>
+      <!-- 전체메뉴 -->
+      <div class="allmenu" style="display: none">전체메뉴</div>
+      <!-- //전체메뉴 -->
+    </header>
+    <!-- //header include-->
+
+    <div id="container">
+      <div id="content">
+        <div class="store-container-page">
+          <div class="container-visual-area">
+            <div class="visual-area">
+              <div class="visual-img-box">
+                <img src="../assets/images/visual_bg_img06.jpg" alt="">
+              </div>
+              <div class="visual-txt">
+                <h2 class="title">
+                  <span class="public-txt">STO</span>
+                  <span class="public-txt type02">RE</span>
+                </h2>
+              </div>
+              <!-- 라우트 이동할떄 setFn.visualText();  실행 필요 -->
+            </div>
+            <div class="breadcrunb-area">
+              <ul class="breadcrunb-list">
+                <li class="breadcrunb-item">
+                  <a href="" class="breadcrunb-link f-bar-bold">HOME</a>
+                </li>
+                <li class="breadcrunb-item">
+                  <a href="" class="breadcrunb-link f-bar-bold">STORE</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tab-container">
+            <div class="tab-head">
+              <button class="tab-btn active" type="button">
+                <span class="txt">ALL</span>
+              </button>
+              <button class="tab-btn" type="button">
+                <span class="txt">HOT</span>
+              </button>
+              <button class="tab-btn" type="button">
+                <span class="txt">IN GAME</span>
+              </button>
+              <button class="tab-btn" type="button">
+                <span class="txt">ETC</span>
+              </button>
+            </div>
+            <div class="tab-content">
+              <div class="store-lists-container">
+                <ul class="lists">
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box">
+                          <img src="https://img.pikbest.com/origin/10/13/16/0pIkbEsTwpIkbEsTubI.jpg!f305cw" alt="">
+                        </span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+1000</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">999,999,999,999,999 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">
+                        $ 999,999.99
+                        <span class="discount-sub">(999,999,99)</span>
+                      </span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top hot">HOT</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+3000</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">1,900 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">
+                        $ 999,999.99
+                      </span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md unlimited">Unlimited</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+99999</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">3,700 <span class="gem-block">GEM</span></span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+1000</span>
+                        </span>
+                        <span class="sold-out-box">
+                          SOLD<br />OUT
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">999,999 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box">
+                      <span class="thumbnail-box">
+                        <span class="img-box">
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">999,999,999,999,999 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+3000</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">1,900 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md unlimited">Unlimited</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top">NEW</span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">3,700 <span class="gem-block">GEM</span></span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+1000</span>
+                        </span>
+                        <span class="sold-out-box">
+                          SOLD<br />OUT
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">999,999 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box">
+                          <img src="https://img.pikbest.com/origin/10/13/16/0pIkbEsTwpIkbEsTubI.jpg!f305cw" alt="">
+                        </span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+1000</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">999,999,999,999,999 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top hot">HOT</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+3000</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">1,900 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md unlimited">Unlimited</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+1000</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">3,700 <span class="gem-block">GEM</span></span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+1000</span>
+                        </span>
+                        <span class="sold-out-box">
+                          SOLD<br />OUT
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">999,999 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box">
+                          <img src="https://img.pikbest.com/origin/10/13/16/0pIkbEsTwpIkbEsTubI.jpg!f305cw" alt="">
+                        </span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+1000</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">999,999,999,999,999 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top hot">HOT</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+3000</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">1,900 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md unlimited">Unlimited</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+1000</span>
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">3,700 <span class="gem-block">GEM</span></span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                  <li class="list">
+                    <a href="" class="item-box has-badge-top has-badge-bottom">
+                      <span class="thumbnail-box">
+                        <span class="img-box"></span>
+                        <span class="badge-top">NEW</span>
+                        <span class="badge-bottom">
+                          <span class="txt">BONUS GEM</span>
+                          <span class="txt big">+1000</span>
+                        </span>
+                        <span class="sold-out-box">
+                          SOLD<br />OUT
+                        </span>
+                      </span>
+                      <span class="item-price">
+                        <span class="price">999,999 <span class="gem-block">GEM</span></span>
+                        <span class="discount">99%</span>
+                      </span>
+                      <span class="item-price-sub f-bar-md">$ 999,999.99</span>
+                      <span class="item-price-apt f-bar-md">(= APT 99.999.999)</span>
+                      <span class="item-remain f-bar-md"><span class="txt">Remain</span> 99,999 / 99,999</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-center">
+                <button type="button" class="btn more-btn">
+                  <span class="txt">MORE</span>
+                  <i class="ico-arrow-down"></i>
+                </button>
+              </div>
+
+              <p class="public-txt f-bar-md f-20">Price fixed in USD; APT price updated every 5 minutes ($1 ≈ 99,999
+                APT)</p>
+            </div>
+            <p class="public-txt center-flex f-40 mt-100 important-notice">IMPORTANT NOTICE</p>
+            <p class="public-txt block center-txt f-18 f-bar-md mt-30 explain-txt">
+              1. The Service may be restricted in regions not officially included in the service regions.<br />
+              2. All purchases are final and non-refundable, non-exchangeable, and non-transferable.<br />
+              3. You agree to pay all applicable fees and taxes associated with your purchases.<br />
+              4. If you reside in the EU, you have a 14-day withdrawal right from the purchase date.<br />
+              5. The withdrawal right is lost once you start using the virtual items or currencies.<br />
+              6. No refunds will be provided for unused items when your account is closed.<br />
+              7. NTROi may adjust prices of products at any time without prior notice.<br />
+              8. For inquiries, please contact our customer service team at <a href="mailTo:nt-cs@NTROi.com" class="mailto">nt-cs@NTROi.com&nbsp;</a> <br class="pc-show" />
+              (mailto : <a href="mailTo:nt-cs@NTROi.com" class="mailto">nt-cs@NTROi.com</a>)
+            </p>
+            <!-- <div class="tab-content"></div> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="go-top-wrap">
+      <button type="button" class="btn-gotop">
+        <i class="ico-go-top" aria-hidden="true"></i>
+        <a class="gotop"><span class="hide-txt">화면 제일위로 이동</span></a>
+      </button>
+    </div>
+
+
+    <!-- footer include-->
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div CLASS="copyright">COPYRIGHT © 2024 NTROI INC. ALL RIGHT RESERVED</div>
+        <ul class="footer-list">
+          <li class="privacy">
+            <button type="button" class="popup-btn">PRIVACY POLICY</button>
+          </li>
+          <li class="terms">
+            <button type="button" class="popup-btn">TERMS OF USE</button>
+          </li>
+          <li class="social">
+            <ul class="depth2">
+              <li>
+                <a href="social-btn">
+                  <i class="ico-discord" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="social-btn">
+                  <i class="ico-mideum" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="social-btn">
+                  <i class="ico-x" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="social-btn">
+                  <i class="ico-email" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </footer>
+    <!-- //footer include-->
+  </div>
+  <div class="dimm"></div>
+  <script src="../assets/script/lib/swiper-bundle.min.js"></script>
+  <script src="../assets/script/lib/gsap.js"></script>
+  <script src="../assets/script/common.js"></script>
+  <script>
+
+  </script>
+</body>
+
+</html>
