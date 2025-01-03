@@ -140,7 +140,48 @@
 
     }
 
+    .store-detail-container .pay-column .column-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
+    .store-detail-container .pay-column .column-box+.column-box {
+      margin-top: 2rem;
+    }
+
+    .store-detail-container .pay-column .column-box .column {
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+
+    .store-detail-container .pay-column .column-box .column.ellipsis {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+    }
+
+    .store-detail-container .pay-column .column-box .column+.column {
+      margin-left: 2rem;
+      text-align: right;
+    }
+
+    .store-detail-container .pay-column .column-box .ico-apt-logo {
+      width: 1.3rem;
+      height: 1.3rem;
+      margin-right: .5rem;
+    }
+
+    .store-detail-container .pay-column.border-line {
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+      padding-top: 3.8rem;
+      padding-bottom: 3rem;
+    }
 
     .store-detail-container .pay-sub-title {
       font-size: 1.7rem;
@@ -255,7 +296,10 @@
         display: none;
       }
 
-
+      .store-detail-container .pay-column.border-line {
+        margin-top: 4rem;
+        padding-top: 3rem;
+      }
 
       .checkbox-content {
         margin-top: 4rem;
@@ -543,6 +587,7 @@
               </div>
             </div>
           </div>
+
           <div class="checkbox-content">
             <label for="checkbox">
               <input type="checkbox" id="checkbox">
@@ -630,6 +675,31 @@
   <script src="../assets/script/lib/gsap.js"></script>
   <script src="../assets/script/common.js"></script>
   <script>
+    const confirmDialog4 = setFn.dialog({
+      confirmText: 'OK',
+      cancelText: false,
+      classAdd: "caution",
+      confirm() {
+        confirmDialog4.close()
+        dialog.close();
+      },
+      cancel() {
+        confirmDialog4.close()
+      }
+    })
+    const customHTML4 = `
+<div class="caution-wrap">
+  <div class="caution-content">
+    <p class="txt">
+      It failed to complete the purchase.<br/>
+      Please Try again.<br/>
+    </p>
+  </div>
+</div>
+        `
+    confirmDialog4.open({
+      customHTML: customHTML4
+    })
 
   </script>
 </body>

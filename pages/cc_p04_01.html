@@ -41,126 +41,6 @@
   </style>
   <!-- popup 영역 -->
   <style>
-    .transfer-cotnent.upset-flex {
-      display: block;
-      border-bottom: 0;
-      padding-bottom: 1rem;
-    }
-
-    .item-column {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 32.7rem;
-    }
-
-    .item-column .value {
-      font-size: 1.7rem;
-      line-height: 2rem;
-      color: #888888;
-    }
-
-    .item-column .data {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      flex: 1;
-      margin-left: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .account-apt {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #444;
-      margin-top: 2rem;
-      padding: 1rem 1.2rem;
-      border-radius: .5rem;
-
-    }
-
-    .account-apt .result {
-      font-family: "Anton";
-      font-size: 3.5rem;
-      line-height: 3.5rem;
-    }
-
-    .balance-txt {
-      margin-top: 1rem;
-      text-align: left;
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      color: #888;
-    }
-
-    .transfer-cotnent.upset-flex .ico-transfer-arrow {
-      margin-left: -6rem;
-      margin-right: -6rem;
-      width: calc(100% + 12rem);
-    }
-
-    .summary-box {
-      margin-top: 3rem;
-    }
-
-    .summary-box .title {
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #444;
-      text-align: left;
-      font-size: 1.7rem;
-      line-height: 2rem;
-    }
-
-    .summary-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
-    }
-
-    .summary-item .value {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-    }
-
-    .summary-item .data {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      flex: 1;
-      margin-left: 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .summary-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #444;
-    }
-
-    @media (max-width: 767px) {
-      .transfer-cotnent.upset-flex {
-        padding: 0 2rem;
-      }
-
-      .item-column {
-        max-width: 100%;
-      }
-
-      .transfer-cotnent.upset-flex .ico-transfer-arrow {
-        margin-left: -2rem;
-        margin-right: -2rem;
-        width: calc(100% + 4rem);
-      }
-    }
 
   </style>
 </head>
@@ -190,7 +70,17 @@
               <span class="hide-txt">로그아웃 하기</span>
             </button>
             <div class="logout-btn-box">
-              <a href="" class="logout-btn">Logout</a>
+              <a href="" class="logout-btn">MY INFO</a>
+              <a href="" class="logout-btn">CONNECT<br />EXTERNAL WALLET</a>
+              <div class="logout-btn flex">
+                <button class="copy-btn">
+                  <i class="ico-petra-apt small" aria-hidden="true"></i>
+                  <span class="txt f-bar-md">0x813as2d132ayh132ew1df2314t32w145tg2z1fds32v1awe3213fg</span>
+                  <i class="ico-copy" aria-hidden="true"></i>
+                </button>
+                <a href="" class="underline">DISCONNECT</a>
+              </div>
+              <a href="" class="logout-btn">LOGOUT</a>
             </div>
           </div>
 

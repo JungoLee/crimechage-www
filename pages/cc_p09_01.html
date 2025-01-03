@@ -140,7 +140,48 @@
 
     }
 
+    .store-detail-container .pay-column .column-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
+    .store-detail-container .pay-column .column-box+.column-box {
+      margin-top: 2rem;
+    }
+
+    .store-detail-container .pay-column .column-box .column {
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+
+    .store-detail-container .pay-column .column-box .column.ellipsis {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+    }
+
+    .store-detail-container .pay-column .column-box .column+.column {
+      margin-left: 2rem;
+      text-align: right;
+    }
+
+    .store-detail-container .pay-column .column-box .ico-apt-logo {
+      width: 1.3rem;
+      height: 1.3rem;
+      margin-right: .5rem;
+    }
+
+    .store-detail-container .pay-column.border-line {
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+      padding-top: 3.8rem;
+      padding-bottom: 3rem;
+    }
 
     .store-detail-container .pay-sub-title {
       font-size: 1.7rem;
@@ -255,7 +296,10 @@
         display: none;
       }
 
-
+      .store-detail-container .pay-column.border-line {
+        margin-top: 4rem;
+        padding-top: 3rem;
+      }
 
       .checkbox-content {
         margin-top: 4rem;
@@ -543,6 +587,7 @@
               </div>
             </div>
           </div>
+
           <div class="checkbox-content">
             <label for="checkbox">
               <input type="checkbox" id="checkbox">
@@ -630,6 +675,45 @@
   <script src="../assets/script/lib/gsap.js"></script>
   <script src="../assets/script/common.js"></script>
   <script>
+    const dialog = setFn.dialog({
+      confirmText: 'BUY',
+      // APT : NOT ENOUGH 일때
+      // confirmText: 'APT : NOT<br>ENOUGH',
+      // confirmDisabled: true,
+      cancelText: 'CANCEL',
+      confirm() {
+
+      },
+      cancel() {
+        dialog.close();
+      }
+    })
+    const customHTML = `
+<div class="inventory-transfer-wrap">
+  <div class="transfer-head">
+    <span class="txt">PROCEED TO PAYMENT</span>
+    <span class="txt f-bar-md">Would you like to purchase this item?</span>
+  </div>
+
+  <div class="transfer-cotnent upset-flex">
+    <div class="item-column">
+      <span class="value">KEYLESS</span>
+      <span class="data">0x881abckdosdjslfae1a9...</span>
+    </div>
+    <div class="account-apt">
+      <i class="ico-apt-logo" aria-hidden="true"></i>
+      <p class="result">33,333.947</p>
+    </div>
+    <p class="balance-txt">Balance 145,4842432</p>
+    <p class="gas-fee">Gas Fee : 0 </p>
+    <img class="free-event-badge" src="../assets/images/free_event_badge.png" alt="FREE EVENT">
+  </div>
+</div>
+        `
+
+    dialog.open({
+      customHTML
+    })
 
   </script>
 </body>
