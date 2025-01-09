@@ -180,10 +180,27 @@
     .checkbox-content label {
       display: flex;
       justify-content: center;
-      align-content: center;
+      align-items: center;
+      cursor: pointer;
     }
 
     .checkbox-content label input {
+      margin-right: 1.5rem;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      width: 1.6rem;
+      height: 1.6rem;
+      background-size: 1.6rem;
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='15' height='15' rx='1.5' fill='%231B1B1B' stroke='%23CFCFCF'/%3E%3C/svg%3E%0A");
+      flex: 0 0 auto;
+    }
+
+    .checkbox-content label input:checked {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_411_3246)'%3E%3Crect x='0.5' y='0.5' width='15' height='15' rx='1.5' fill='%23FF0109' stroke='%23FF0109'/%3E%3Cpath d='M3.53033 7.96967C3.23744 7.67678 2.76256 7.67678 2.46967 7.96967C2.17678 8.26256 2.17678 8.73744 2.46967 9.03033L3.53033 7.96967ZM2.46967 9.03033L5.96967 12.5303L7.03033 11.4697L3.53033 7.96967L2.46967 9.03033Z' fill='%231B1B1B'/%3E%3Cpath d='M13.3369 5.54801C13.6396 5.26521 13.6557 4.79061 13.3729 4.48796C13.0901 4.1853 12.6155 4.1692 12.3128 4.45199L13.3369 5.54801ZM5.8453 12.548L13.3369 5.54801L12.3128 4.45199L4.82121 11.452L5.8453 12.548Z' fill='%231B1B1B'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_411_3246'%3E%3Crect width='16' height='16' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    }
+
+    .checkbox-content label input::before {
       margin-right: 1.5rem;
     }
 

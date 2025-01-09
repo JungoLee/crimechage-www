@@ -35,11 +35,32 @@
       text-align: center;
     }
 
+    .select-container {
+      margin-top: 3rem;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 2;
+
+    }
+
     @media (max-width: 767px) {
       .more-btn {}
 
       .myasset-container-page .inventory-detail {
         margin-bottom: 0;
+        margin-top: 1.5rem;
+      }
+
+      .select-container {
+        justify-content: center;
+      }
+
+      .select-container .select-box {
+        max-width: calc(40%);
+      }
+
+      .select-container .select-box+.select-box {
+        max-width: calc(60%);
       }
 
     }
@@ -284,6 +305,149 @@
                     <i class="ico-arrow-btn"></i>
                   </button>
                 </div>
+              </div>
+              <div class="select-container f-bar-md">
+                <div class="select-box">
+                  <button type="button" class="open-btn">
+                    <span class="txt">FAST WHEEL</span>
+                    <i class="ico-arrow-red"></i>
+                  </button>
+                  <div class="select-lists-wrapper">
+                    <ul class="select-lists">
+                      <li class="option">
+                        <button type="button">ALL</button>
+                      </li>
+                      <li class="option">
+                        <button type="button">BADGE</button>
+                      </li>
+                      <li class="option">
+                        <button type="button">PARTNER</button>
+                      </li>
+                      <li class="option">
+                        <button type="button">FAST WHEEL</button>
+                      </li>
+                      <li class="option">
+                        <button type="button">BOSS GEAR</button>
+                      </li>
+                      <li class="option">
+                        <button type="button">ETC</button>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+                <div class="select-box">
+                  <button type="button" class="open-btn">
+                    <span class="txt">RARITY : HIGH TO HIGH</span>
+                    <i class="ico-arrow-red"></i>
+                  </button>
+                  <div class="select-lists-wrapper">
+                    <ul class="select-lists">
+                      <li class="option">
+                        <button type="button">NEWEST</button>
+                      </li>
+                      <li class="option">
+                        <button type="button">OLDEST</button>
+                      </li>
+                      <li class="option">
+                        <button type="button">RARITY : LOW TO HIGH</button>
+                      </li>
+                      <li class="option">
+                        <button type="button">RARITY : HIGH TO HIGH</button>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+                <script>
+                  document.addEventListener('DOMContentLoaded', () => {
+                    document.querySelectorAll('.select-box').forEach(($el) => {
+                      const btn = $el.querySelector('.open-btn');
+                      const wrapper = $el.querySelector('.select-lists-wrapper');
+                      const lists = $el.querySelector('.select-lists');
+                      const option = $el.querySelectorAll('.option');
+                      let isOpen = false;
+
+
+                      // 페이지 로드 시 또는 옵션이 변경될 때 너비 설정
+
+                      btn.addEventListener("click", () => {
+                        console.log(isOpen);
+                        if (isOpen) {
+                          SelectClose({
+                            $el,
+                            wrapper,
+                            lists
+                          });
+                          isOpen = false;
+                        } else {
+                          SelectOpen({
+                            $el,
+                            wrapper,
+                            lists
+                          });
+                          isOpen = true;
+                        }
+                      });
+                      let maxWidth = 0
+                      option.forEach(($option) => {
+                        const context = $option.textContent;
+                        $option.addEventListener("click", () => {
+                          SelectClose({
+                            $el,
+                            wrapper,
+                            lists
+                          });
+                          btn.querySelector('.txt').textContent = context;
+                        });
+                        const optionWidth = $option.offsetWidth; // 각 option의 너비
+
+                        if (optionWidth > maxWidth) {
+                          maxWidth = optionWidth + 62; // 가장 긴 너비 업데이트
+                        }
+                        $el.style.width = `${maxWidth / 10}rem`; // $el의 너비 설정
+                      });
+                    });
+
+                  })
+
+                  function SelectOpen({
+                    $el,
+                    wrapper,
+                    lists
+                  }) {
+                    gsap.set(wrapper, {
+                      display: "block",
+                      overwrite: true,
+                    })
+                    gsap.to(lists, .5, {
+                      y: 0,
+                      ease: "power3.out",
+                      overwrite: true,
+                    })
+                    $el.classList.add('active')
+                  }
+
+                  function SelectClose({
+                    $el,
+                    wrapper,
+                    lists
+                  }) {
+                    gsap.to(lists, .5, {
+                      y: "-100%",
+                      ease: "power3.out",
+                      overwrite: true,
+                      onComplete() {
+                        gsap.set(wrapper, {
+                          display: "none",
+                          overwrite: true,
+                        })
+                      }
+                    })
+                    $el.classList.remove('active')
+                  }
+
+                </script>
               </div>
               <div class="inventory-detail">
                 <ul class="lists">
