@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta charset="utf-8" />
+  <title>Crime & Chase</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:description" content="" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link href="../assets/styles/style.css" type="text/css" rel="stylesheet" />
+  <link href="../assets/styles/style2.css" type="text/css" rel="stylesheet" />
+  <style>
+    .myasset-container-page {
+      position: relative;
+    }
+
+    .inventory-address {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .inventory-address .copy-btn {
+      margin: 0 3rem 0 1rem;
+    }
+
+    .left-box {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .id-box {
+      display: flex;
+      align-items: flex-end;
+      align-items: center;
+    }
+
+    .id-box p {
+      font-size: 1.7rem;
+      font-family: "barlow";
+      line-height: 2.0rem;
+      color: #fff;
+      /* @include ellipsis; */
+      width: 26.0rem;
+      text-overflow: ellipsis;
+
+    }
+
+    .id-box p.aptos {
+      margin-top: .5rem;
+    }
+
+    .id-box p.aptos a {
+      margin-left: 1rem;
+    }
+
+    .myasset-container-page .inventory-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .myasset-container-page .btn-group .btn-circle+.btn-circle {
+      margin-left: 1.5rem;
+    }
+
+    .util-container {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .select-container {
+      justify-content: flex-end;
+      position: relative;
+      z-index: 2;
+    }
+
+    .select-wrapper {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .util-container>div {
+      flex: 1;
+    }
+
+    .util-container .address {
+      white-space: nowrap;
+      width: 26rem;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .myasset-container-page .inventory-detail .info-name-box {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .util-container {}
+
+    .registration-txt {
+      font-size: 1.7rem;
+      line-height: 2rem;
+      color: #fff;
+      text-align: right;
+      margin-top: 1rem;
+    }
+
+    .btn-center {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .address-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .caution-content .white {
+      color: #fff;
+    }
+
+    @media (max-width: 767px) {
+      .inventory-address {
+        width: 100%;
+        position: absolute;
+        justify-content: center;
+        bottom: calc(100% + 3rem);
+        width: calc(100vw - 4rem);
+      }
+
+      .id-box {
+        width: 100%;
+      }
+
+      .myasset-container-page {
+        padding-top: 14rem;
+      }
+
+      .id-box {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .id-box p {
+        width: auto;
+        max-width: calc(100vw - 4rem);
+      }
+
+      .inventory-address .copy-btn {
+        margin-right: 0
+      }
+
+      .myasset-container-page .inventory-detail {
+        margin-top: 1.5rem;
+      }
+
+      .registration-txt {
+        margin-top: 0;
+        display: none;
+      }
+
+      .select-container {
+        width: 100%;
+      }
+
+      .select-container .select-wrapper {
+        width: 100%;
+      }
+
+      .btn-center {
+        margin-top: 6rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <!-- header include-->
+    <header id="header" class="header f-bar-bold">
+      <div class="header-inner">
+        <div class="header-util">
+          <button type="button" class="btn-allmenu mo-show">
+            <i class="ico-allmenu" aria-hidden="true"></i>
+            <span class="hide-txt">전체메뉴</span>
+          </button>
+          <h1>
+            <a href="" class="logo">
+              <img src="../assets/images/logo.png" alt="">
+              <span class="hide-txt">CRIME & CHASE conlict city</span>
+            </a>
+          </h1>
+          <!-- 로그인 버튼 -->
+
+
+          <div class="login-info-wrapper mo-show">
+            <button type="button" class="login-info mo-show">
+              <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+              <span class="hide-txt">로그아웃 하기</span>
+            </button>
+            <div class="logout-btn-box">
+              <a href="" class="logout-btn">MY INFO</a>
+              <a href="" class="logout-btn">CONNECT<br />EXTERNAL WALLET</a>
+              <div class="logout-btn flex">
+                <button class="copy-btn">
+                  <i class="ico-petra-apt small" aria-hidden="true"></i>
+                  <span class="txt f-bar-md">0x813as2d132ayh132ew1df2314t32w145tg2z1fds32v1awe3213fg</span>
+                  <i class="ico-copy" aria-hidden="true"></i>
+                </button>
+                <a href="" class="underline">DISCONNECT</a>
+              </div>
+              <a href="" class="logout-btn">LOGOUT</a>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="header-nav">
+
+          <ul class="gnb-area left">
+            <li class="one-depth home">
+              <a href="" class="">
+                <img src="../assets/images/logo.png" class="mo-show logo" alt="">
+                <span class="pc-show">HOME</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>STORE</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>NFT DRAW</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>NFT MERGE</span>
+              </a>
+            </li>
+            <li class="one-depth">
+              <a href="">
+                <span>PUZZLE</span>
+              </a>
+            </li>
+            <li class="one-depth relative">
+              <a href="" class="two-depth-btn">
+                <span>PLAY TEST</span>
+              </a>
+              <div class="play-test-box">
+                <a href="" class="play-test-btn">REWARD</a>
+                <a href="" class="play-test-btn">CREATOR</a>
+              </div>
+              <style>
+                .play-test-box {
+                  position: absolute;
+                  right: 50%;
+                  top: calc(100% + -2.5rem);
+                  transform: translateY(10px) translateX(50%);
+                  border-radius: 1rem;
+                  background-color: #000;
+                  padding: .5rem 2rem;
+                  /* display: none; */
+                  /* opacity: 0; */
+                }
+
+                .play-test-box .play-test-btn {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 4.6rem;
+                  padding: 1.3rem 0;
+                  font-size: 1.5rem;
+                  color: #fff;
+                  box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.25);
+                  font-family: "Barlow", sans-serif;
+                  font-weight: 500;
+                  font-style: normal;
+                  text-align: left;
+                }
+
+                .play-test-box .play-test-btn+.play-test-btn {
+                  border-top: 1px solid #444444;
+                }
+
+              </style>
+            </li>
+
+          </ul>
+          <ul class="gnb-area">
+            <li class="one-depth">
+              <a href="">
+                <span>MY ASSET</span>
+              </a>
+            </li>
+            <li class="one-depth mo-show">
+              <a href="">
+                <span>LOG IN</span>
+              </a>
+            </li>
+
+
+            <li class="one-depth pc-show">
+              <div class="login-info-wrapper">
+                <button type="button" class="login-info mo-show">
+                  <span class="id f-bar-md">hello01@gmail.com</span>
+                  <i class="ico-profile-img" aria-hidden="true" style="background-image:url('../assets/images/login_profile_img.png')"></i>
+                  <span class="hide-txt">로그아웃 하기</span>
+                </button>
+                <div class="logout-btn-box">
+                  <a href="" class="logout-btn">MY INFO</a>
+                  <a href="" class="logout-btn">CONNECT<br />EXTERNAL WALLET</a>
+                  <div class="logout-btn flex">
+                    <button class="copy-btn">
+                      <i class="ico-petra-apt small" aria-hidden="true"></i>
+                      <span class="txt f-bar-md">0x813as2d132ayh132ew1df2314t32w145tg2z1fds32v1awe3213fg</span>
+                      <i class="ico-copy" aria-hidden="true"></i>
+                    </button>
+                    <a href="" class="underline">DISCONNECT</a>
+                  </div>
+                  <a href="" class="logout-btn">LOGOUT</a>
+                </div>
+              </div>
+            </li>
+
+
+          </ul>
+
+          <button type="button" class="close-btn">
+            <i class="ico-close" aria-hidden="true"></i>
+            <span class="hide-txt">close</span>
+          </button>
+        </div>
+      </div>
+      <div class="dimmed mo-show"></div>
+      <!-- 전체메뉴 -->
+      <div class="allmenu" style="display: none">전체메뉴</div>
+      <!-- //전체메뉴 -->
+    </header>
+    <!-- //header include-->
+
+    <div id="container">
+      <div id="content">
+        <div class="container-visual-area">
+          <div class="visual-area">
+            <div class="visual-img-box">
+              <img src="../assets/images/visual_bg_img03.jpg" alt="">
+            </div>
+            <div class="visual-txt">
+              <h2 class="title">
+                <span class="public-txt type02">MY</span>
+                <span class="public-txt ml-30"> ASSET</span>
+              </h2>
+            </div>
+            <!-- 라우트 이동할떄 setFn.visualText();  실행 필요 -->
+          </div>
+          <div class="breadcrunb-area">
+            <ul class="breadcrunb-list">
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">HOME</a>
+              </li>
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">MY ASSET</a>
+              </li>
+              <li class="breadcrunb-item">
+                <a href="" class="breadcrunb-link f-bar-bold">WEB3 INVENTORY</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="myasset-container-page">
+          <div class="inventory-wrap">
+            <div class="tab-container">
+              <div class="inventory-top">
+                <div class="tab-head">
+                  <button class="tab-btn" type="button">
+                    <span class="txt">GAME</span>
+                  </button>
+                  <button class="tab-btn" type="button">
+                    <span class="txt">WEB3 INV</span>
+                  </button>
+                  <button class="tab-btn active" type="button">
+                    <span class="txt">KEYLESS</span>
+                  </button>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn-circle">
+                    <span class="hide-txt">TICKET</span>
+                    <i class="ico-ticket02"></i>
+                  </button>
+                  <button type="button" class="btn-circle">
+                    <span class="hide-txt">REFRESH</span>
+                    <i class="ico-refresh02"></i>
+                  </button>
+                  <button type="button" class="btn-circle my-info-btn">
+                    <span class="hide-txt">MY INFO</span>
+                    <i class="ico-myinfo"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="util-container">
+                <div class="inventory-address">
+                  <div class="left-box">
+                    <div class="id-box">
+                      <div class="address-box">
+                        <p class="address">
+                          <span class="key">ADDRESS : </span>
+                          <span class="value">
+                            0x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a90x881abckdosdjslfae1a9</span>
+                        </p>
+                        <button type="button" class="copy-btn">
+                          <span class="hide-txt">COPY</span>
+                        </button>
+                      </div>
+                      <p class="aptos">
+                        <span class="key">APTOS : </span>
+                        <span class="value"> 15.4653 APT</span>
+                        <a href="">
+                          <i class="ico-arrow-red" aria-hidden="true"></i>
+                        </a>
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="select-container f-bar-md">
+
+                  <div class="select-wrapper">
+                    <div class="select-box">
+                      <button type="button" class="open-btn">
+                        <span class="txt">FAST WHEEL</span>
+                        <i class="ico-arrow-red"></i>
+                      </button>
+                      <div class="select-lists-wrapper">
+                        <ul class="select-lists">
+                          <li class="option">
+                            <button type="button">ALL</button>
+                          </li>
+                          <li class="option">
+                            <button type="button">BADGE</button>
+                          </li>
+                          <li class="option">
+                            <button type="button">PARTNER</button>
+                          </li>
+                          <li class="option">
+                            <button type="button">FAST WHEEL</button>
+                          </li>
+                          <li class="option">
+                            <button type="button">BOSS GEAR</button>
+                          </li>
+                          <li class="option">
+                            <button type="button">ETC</button>
+                          </li>
+                        </ul>
+                      </div>
+
+                    </div>
+                    <div class="select-box">
+                      <button type="button" class="open-btn">
+                        <span class="txt">RARITY : HIGH TO HIGH</span>
+                        <i class="ico-arrow-red"></i>
+                      </button>
+                      <div class="select-lists-wrapper">
+                        <ul class="select-lists">
+                          <li class="option">
+                            <button type="button">NEWEST</button>
+                          </li>
+                          <li class="option">
+                            <button type="button">OLDEST</button>
+                          </li>
+                          <li class="option">
+                            <button type="button">RARITY : LOW TO HIGH</button>
+                          </li>
+                          <li class="option">
+                            <button type="button">RARITY : HIGH TO HIGH</button>
+                          </li>
+                        </ul>
+                      </div>
+
+                    </div>
+                    <script>
+                      document.addEventListener('DOMContentLoaded', () => {
+                        document.querySelectorAll('.select-box').forEach(($el) => {
+                          const btn = $el.querySelector('.open-btn');
+                          const wrapper = $el.querySelector('.select-lists-wrapper');
+                          const lists = $el.querySelector('.select-lists');
+                          const option = $el.querySelectorAll('.option');
+                          let isOpen = false;
+
+
+                          // 페이지 로드 시 또는 옵션이 변경될 때 너비 설정
+
+                          btn.addEventListener("click", () => {
+                            console.log(isOpen);
+                            if (isOpen) {
+                              SelectClose({
+                                $el,
+                                wrapper,
+                                lists
+                              });
+                              isOpen = false;
+                            } else {
+                              SelectOpen({
+                                $el,
+                                wrapper,
+                                lists
+                              });
+                              isOpen = true;
+                            }
+                          });
+                          let maxWidth = 0
+                          option.forEach(($option) => {
+                            const context = $option.textContent;
+                            $option.addEventListener("click", () => {
+                              SelectClose({
+                                $el,
+                                wrapper,
+                                lists
+                              });
+                              btn.querySelector('.txt').textContent = context;
+                            });
+                            const optionWidth = $option.offsetWidth; // 각 option의 너비
+
+                            if (optionWidth > maxWidth) {
+                              maxWidth = optionWidth + 62; // 가장 긴 너비 업데이트
+                            }
+                            $el.style.width = `${maxWidth / 10}rem`; // $el의 너비 설정
+                          });
+                        });
+
+                      })
+
+                      function SelectOpen({
+                        $el,
+                        wrapper,
+                        lists
+                      }) {
+                        gsap.set(wrapper, {
+                          display: "block",
+                          overwrite: true,
+                        })
+                        gsap.to(lists, .5, {
+                          y: 0,
+                          ease: "power3.out",
+                          overwrite: true,
+                        })
+                        $el.classList.add('active')
+                      }
+
+                      function SelectClose({
+                        $el,
+                        wrapper,
+                        lists
+                      }) {
+                        gsap.to(lists, .5, {
+                          y: "-100%",
+                          ease: "power3.out",
+                          overwrite: true,
+                          onComplete() {
+                            gsap.set(wrapper, {
+                              display: "none",
+                              overwrite: true,
+                            })
+                          }
+                        })
+                        $el.classList.remove('active')
+                      }
+
+                    </script>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inventory-detail">
+                <ul class="lists">
+                  <li class="list">
+                    <div class="item-box">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9nu7n0E08-6IWTwb9DV6B2sCAjrEBNUTlA&s" alt="">
+                    </div>
+                    <div class="tooltip-area">
+                      <button type="button" class="clip-btn">
+                        <i class="ico-clip" aria-hidden="true"></i>
+                        <span class="hide-txt"></span>
+                      </button>
+                    </div>
+                    <div class="info-name-box">
+                      <p class="public-txt f-15 f-bar-md">ABCDEFGHIJ</p>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9nu7n0E08-6IWTwb9DV6B2sCAjrEBNUTlA&s" alt="">
+                      <div class="lock-box">
+                        <p class="public-txt f-24">Minting...</p>
+                      </div>
+                    </div>
+                    <div class="tooltip-area">
+                      <button type="button" class="clip-btn">
+                        <i class="ico-clip" aria-hidden="true"></i>
+                        <span class="hide-txt"></span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                  <li class="list">
+                    <div class="item-box">
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <p class="f-bar-md registration-txt ">※ This is an in-game asset that can be registered on the blockchain.
+              </p>
+              <div class="btn-center">
+                <button type="button" class="btn more-btn">
+                  <span class="txt">MORE</span>
+                  <i class="ico-arrow-down"></i>
+                </button>
+              </div>
+
+
+
+            </div>
+          </div>
+          <div class="insufficient-apt-btn-box">
+            <a href="" class="balance-btn">Chain Registration has been requested</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="go-top-wrap">
+    <button type="button" class="btn-gotop">
+      <i class="ico-go-top" aria-hidden="true"></i>
+      <a class="gotop"><span class="hide-txt">화면 제일위로 이동</span></a>
+    </button>
+  </div>
+
+
+  <!-- footer include-->
+  <footer id="footer" class="footer">
+    <div class="footer-inner">
+      <div CLASS="copyright">COPYRIGHT © 2024 NTROI INC. ALL RIGHT RESERVED</div>
+      <ul class="footer-list">
+        <li class="privacy">
+          <button type="button" class="popup-btn">PRIVACY POLICY</button>
+        </li>
+        <li class="terms">
+          <button type="button" class="popup-btn">TERMS OF USE</button>
+        </li>
+        <li class="social">
+          <ul class="depth2">
+            <li>
+              <a href="social-btn">
+                <i class="ico-discord" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="social-btn">
+                <i class="ico-mideum" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="social-btn">
+                <i class="ico-x" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="social-btn">
+                <i class="ico-email" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </footer>
+  <!-- //footer include-->
+  </div>
+  <div class="dimm"></div>
+  <script src="../assets/script/lib/swiper-bundle.min.js"></script>
+  <script src="../assets/script/lib/gsap.js"></script>
+  <script src="../assets/script/common.js"></script>
+  <script>
+    const confirmDialog = setFn.dialog({
+      confirmText: 'YES',
+      cancelText: 'NO',
+      classAdd: "caution",
+      confirm() {
+        confirmDialog.close()
+        dialog.close();
+      },
+      cancel() {
+        confirmDialog.close()
+      }
+    })
+    const customHTML = `
+<div class="caution-wrap">
+  <div class="caution-head">CHAIN REGISTRATION</div>
+  <div class="caution-content">
+    <p class="txt">
+      Once the NFT minting is complete, <br/>
+      the asset becomes <span class="white">the user's property.</span><br/>
+      The registered asset can be viewed in the Web3 inventory.<br/>
+      (The minting process may take some time.)</p>
+  </div>
+</div>
+        `
+    confirmDialog.open({
+      customHTML
+    })
+
+  </script>
+</body>
+
+</html>
